@@ -155,8 +155,8 @@ public class GSM_VSE extends JFrame {
 //        droplistKraj.selectByVisibleText("Hlavní město Praha");
             driver.findElement(By.id("SER_SIGNATURE_DATE_FV")).sendKeys(dnesniDatum + "" + Keys.INSERT);   //datum podpisu objednávky
             
-            Select droplistVSEKontrakt = new Select(driver.findElement(By.id("SER_VSE_CONTRACT_FV")));                  // VSE kontrakt
-            droplistVSEKontrakt.selectByVisibleText("Uzavřít VSE kontrakt");
+            //Select droplistVSEKontrakt = new Select(driver.findElement(By.id("SER_VSE_CONTRACT_FV")));                  // VSE kontrakt
+            //droplistVSEKontrakt.selectByVisibleText("Uzavřít VSE kontrakt");
 
             driver.findElement(By.id("but7")).click(); // Kontrola
 
