@@ -1,6 +1,7 @@
 package ccm_auto_insert;
 
 import generatorRC.RcGenerator;
+import java.sql.SQLException;
 import java.util.Random;
 
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GSM_VSE_Pridruzeni {
 
-    static void proved_GSM_VSE_Pridruzeni_skript(int CisloKPridruzeni, int testProstredi) {
+    static void proved_GSM_VSE_Pridruzeni_skript(int CisloKPridruzeni, int testProstredi) throws SQLException {
 
         System.setProperty("webdriver.ie.driver", "C:/Users/oholik/Desktop/Selenium/selenium-java-2.45.0/IEDriverServer.exe");
         //InternetExplorerDriver IEDriver = new InternetExplorerDriver();
@@ -39,7 +40,7 @@ public class GSM_VSE_Pridruzeni {
 
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_msisdn"))).sendKeys(CisloKPridruzeni + "" + Keys.INSERT);  //vlož tel. číslo k přidružení
 
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
+        //driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_pr_query"))).click();
 
         Select droplistSP = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_citizenship"))));
@@ -48,7 +49,7 @@ public class GSM_VSE_Pridruzeni {
         Select droplistTS = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_customer_type"))));
         droplistTS.selectByVisibleText("Právnická osoba");
 
-           driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_voice"))).sendKeys("1" + Keys.INSERT);
+        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_voice"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_fix_voice"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_data"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_fix_data"))).sendKeys("1" + Keys.INSERT);
@@ -58,7 +59,7 @@ public class GSM_VSE_Pridruzeni {
         droplistPM.selectByVisibleText("Cash");
         Select droplistDK = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_contr_duration"))));
         droplistDK.selectByVisibleText("24 měsíců");
-        
+
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_mmp"))).sendKeys("20000" + Keys.INSERT);
 
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("48563" + Keys.INSERT);
@@ -66,12 +67,12 @@ public class GSM_VSE_Pridruzeni {
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("vyhledej"))).click(); //vyhledání
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click(); // aktivace
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_gsm_pridruzeni"))).click();  // Pridruzeni
-        
+
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("Input_passoword"))));
         WebElement elem = driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("Input_passoword")));    //zadaní hesla
         elem.sendKeys("2015");
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("Password"))).click();  //ověřit   
-                
+
 //        // záložka Zákazník
 //        driver.findElement(By.id("CON_P_COMP_LAST_NAME_FV")).sendKeys("GSM_sro" + Keys.INSERT);  // obchodní název
 //        driver.findElement(By.id("ADR_CNR_STREET_FV")).sendKeys("Hlavní" + Keys.INSERT);            // Ulice              
@@ -120,12 +121,14 @@ public class GSM_VSE_Pridruzeni {
 
         Select droplistKraj = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SUB_SIMTYPE_FV"))));                  // vybrání SIM karty
         droplistKraj.selectByVisibleText("Universal SIM");
-        
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_SOLUS_FV"))).click();
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_SOUHLAS_CEE_FV"))).click();
 
+        //driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_SOLUS_FV"))).click();
+        //driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_SOUHLAS_CEE_FV"))).click();
         Select droplistTarif = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SUB_QPROTAR_QPROTAR_ID_FV"))));                  // vybrání SIM karty
         droplistTarif.selectByVisibleText("S námi v sítích");
+
+        driver.findElement(By.id("SUB_ICCID_FV")).clear();
+        driver.findElement(By.id("SUB_ICCID_FV")).sendKeys(SQL_selects.ICCIDdatabase(dbConnection.dbConnection_qap(testProstredi), testProstredi) + Keys.INSERT);
 
 //        Select droplistKraj = new Select(driver.findElement(By.id("ADR_FIX_REGION_FV")));
 //        droplistKraj.selectByVisibleText("Hlavní město Praha");
