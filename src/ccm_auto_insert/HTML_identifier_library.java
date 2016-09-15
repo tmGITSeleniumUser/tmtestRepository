@@ -58,7 +58,7 @@ public class HTML_identifier_library {
         String aktivace_novy_zakaznik_gsm = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[3]/td/a";
         String aktivace_nova_faktura_gsm = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[3]/td/a";
         String fix = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[14]/td/a";
-        String aktivace_gsm_pridruzeni = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[4]/td/a";
+        String aktivace_gsm_pridruzeni = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[5]/td/a";
         String aktivace_autopark_asc = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[8]/td/a";
 
         /*CUI end*/
