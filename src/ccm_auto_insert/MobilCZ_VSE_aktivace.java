@@ -104,7 +104,7 @@ public class MobilCZ_VSE_aktivace {
         driver.findElement(By.id("frm-orderForm-customerForm-billingAddress-streetNumberBlue")).sendKeys("1" + Keys.INSERT);  // č.o. jednatele
         driver.findElement(By.id("frm-orderForm-customerForm-billingAddress-city")).sendKeys("Praha" + Keys.INSERT);            // město
 
-        driver.findElement(By.id("frm-orderForm-customerForm-agreements-solus")).click();    //SOLUS1
+        driver.findElement(By.id("frm-orderForm-customerForm-agreements-isPoliticallyExposed")).click();    //SOLUS1
         driver.findElement(By.id("frm-orderForm-customerForm-agreements-positiveSolus")).click();    //SOLUS2
 
         Select droplistTarif = new Select(driver.findElement(By.xpath("/html/body/div[1]/div[4]/form/fieldset[6]/div[3]/div/div[1]/div[4]/div/select")));

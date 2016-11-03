@@ -54,7 +54,7 @@ public class RWE_VSE_aktivace {
         droplistTyp.selectByVisibleText("Právnická osoba");    //nastavení segmentu
 //        driver.findElement(By.id("frm-orderForm-customerForm-customer-companyRegistrationNumber")).sendKeys(ICO + "" + Keys.INSERT); //IČO
         driver.findElement(By.id("frm-orderForm-customerForm-customer-companyRegistrationNumber")).sendKeys(SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(1), 1) + "" + Keys.INSERT); //IČO
-        
+
         driver.findElement(By.id("frm-orderForm-customerForm-customer-loyality")).sendKeys(nahodneCislo + "" + Keys.INSERT); // RWE ID
         driver.findElement(By.id("frm-orderForm-customerForm-customer-companyName")).sendKeys("RWE_VSE" + Keys.INSERT);           // název společnosti
 
@@ -63,8 +63,7 @@ public class RWE_VSE_aktivace {
         driver.findElement(By.id("frm-orderForm-customerForm-companyAddress-streetNumberRed")).sendKeys("2144" + Keys.INSERT); //číslo popisné
         driver.findElement(By.id("frm-orderForm-customerForm-companyAddress-streetNumberBlue")).sendKeys("1" + Keys.INSERT); //číslo popisné
         driver.findElement(By.id("frm-orderForm-customerForm-companyAddress-city")).sendKeys("Praha" + Keys.INSERT);            // město
-        
-        
+
         driver.findElement(By.id("validateCompanyAddress")).click(); // Kontrola adresy 2 - Fakturacni udaje
 
         driver.findElement(By.id("frm-orderForm-customerForm-contact-firstName")).sendKeys("Karel" + Keys.INSERT);            // jméno
@@ -76,10 +75,7 @@ public class RWE_VSE_aktivace {
 
         driver.findElement(By.id("frm-orderForm-customerForm-contact-birthNumber1")).sendKeys(rc1 + "" + Keys.INSERT);  //rodne číslo začátek
         driver.findElement(By.id("frm-orderForm-customerForm-contact-birthNumber2")).sendKeys(rc2 + "" + Keys.INSERT);  //rodne číslo začátek
-        
-        
 
-        
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/form/fieldset[2]/fieldset[1]/div[1]/div/div[2]/div/input")).sendKeys(nahodneCislo + "" + Keys.INSERT);  // ID občanky 
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/form/fieldset[2]/fieldset[1]/div[1]/div/div[3]/div/input")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/form/fieldset[2]/fieldset[1]/div[1]/div/div[3]/div/input")).sendKeys("24.12.2025" + Keys.INSERT);  // platnost průkazu
@@ -89,9 +85,9 @@ public class RWE_VSE_aktivace {
         driver.findElement(By.id("frm-orderForm-customerForm-residence-streetNumberRed")).sendKeys("2144" + Keys.INSERT);  // č.p. jednatele
         driver.findElement(By.id("frm-orderForm-customerForm-residence-streetNumberBlue")).sendKeys("1" + Keys.INSERT);  // č.o. jednatele  
         driver.findElement(By.id("frm-orderForm-customerForm-residence-city")).sendKeys("Praha" + Keys.INSERT);  // Město jednatele
-        
+
         driver.findElement(By.id("validateContactAddress")).click(); // Kontrola adresy 1 - Sidlo
-        
+
         Select droplistOsloveni = new Select(driver.findElement(By.id("frm-orderForm-customerForm-contact-salutation")));
         droplistOsloveni.selectByVisibleText("Vážený zákazníku");
         driver.findElement(By.id("frm-orderForm-customerForm-contact-email")).sendKeys("test@test.cz" + Keys.INSERT);  // email
@@ -103,22 +99,21 @@ public class RWE_VSE_aktivace {
         driver.findElement(By.id("frm-orderForm-customerForm-billingAddress-streetNumberBlue")).sendKeys("1" + Keys.INSERT);  // č.o. jednatele
         driver.findElement(By.id("frm-orderForm-customerForm-billingAddress-city")).sendKeys("Praha" + Keys.INSERT);            // město
 
-        driver.findElement(By.id("frm-orderForm-customerForm-agreements-solus")).click();    //SOLUS1
+        driver.findElement(By.id("frm-orderForm-customerForm-agreements-isPoliticallyExposed")).click();    //SOLUS1
         driver.findElement(By.id("frm-orderForm-customerForm-agreements-positiveSolus")).click();    //SOLUS2
 
         Select droplistTarif = new Select(driver.findElement(By.xpath("/html/body/div[1]/div[4]/form/fieldset[6]/div[3]/div/div[1]/div[4]/div/select")));
         droplistTarif.selectByVisibleText("RWE Chytrý tarif");
         driver.findElement(By.xpath("/html/body/div[1]/div[4]/form/fieldset[6]/div[3]/div/div[2]/div[3]/div/input[1]")).sendKeys(dnesniDatum + "" + Keys.INSERT);  // datum aktivace
-        
-        
+
         driver.findElement(By.id("validateBillingAddress")).click(); // Kontrola adresy 2 - Jednatel
-        
+
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[4]/form/fieldset[6]/div[3]/div/div[1]/div[3]/div/a"))); // ceka na nacteni nabidky
         driver.findElementByXPath("/html/body/div[1]/div[4]/form/fieldset[6]/div[3]/div/div[1]/div[3]/div/a").click(); // zvoleni MSISDN
-        
+
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[5]/div[2]/div/div/div/div[2]/a[1]")));// ceka na nacteni nabidky
         driver.findElementByXPath("/html/body/div[1]/div[5]/div[2]/div/div/div/div[2]/a[1]").click(); // Vyber konkrétního čísla
-        
+
         driver.findElement(By.id("save")).click(); // Ulozeni zadosti 
 //        driver.findElement(By.id("creditCheck")).click(); // Kontrola
     }

@@ -132,7 +132,7 @@ public class TelLinka_VSE_NGOSIP_ASC {
         Select droplistInstalce = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_INSTALL_FV"))));
         droplistInstalce.selectByVisibleText("Instalace");
 
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_OSIP_FV"))).click();  //NGOSIP checkbox
+        //driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_OSIP_FV"))).click();  //NGOSIP checkbox
 
         Select droplistPlneni = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SUB_MIN_COMMITMENT_CODE_FV")))); // Minimalni plneni
         droplistPlneni.selectByVisibleText("CCM - MMP 250");

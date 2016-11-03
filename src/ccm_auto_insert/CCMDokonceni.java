@@ -1,6 +1,5 @@
 package ccm_auto_insert;
 
-
 import java.sql.SQLException;
 import java.util.Random;
 import org.openqa.selenium.Alert;
@@ -69,6 +68,9 @@ public class CCMDokonceni {
             WebElement button_otevre_zadost = (new WebDriverWait(driver, 20)) /*čekání na prvek*/
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/center/p[2]/table/tbody/tr[2]/td[15]/div/a/img")));
             driver.findElement(By.xpath("/html/body/center/p[2]/table/tbody/tr[2]/td[15]/div/a/img")).click(); // Otevre zadost
+
+//            driver.findElement(By.id("but4")).click();
+//            driver.findElement(By.id("SER_DIRNUM_MMS_FV")).click();
 
             WebElement button_odeslat = (new WebDriverWait(driver, 20)) /*čekání na prvek*/
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("but8")));

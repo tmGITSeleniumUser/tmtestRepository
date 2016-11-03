@@ -91,6 +91,7 @@ public class HTML_identifier_library {
         String ADR_BIL_TOWN_FV = "ADR_BIL_TOWN_FV";
         String ADR_BIL_ZIP_FV = "ADR_BIL_ZIP_FV";
         String ADR_BIL_QCUSSAL_ID_FV = "ADR_BIL_QCUSSAL_ID_FV";
+        String SER_INVOICE_FORM_FV = "SER_INVOICE_FORM_FV";
 
         String but4 = "but4";
 
@@ -481,6 +482,10 @@ public class HTML_identifier_library {
             case "i_val": {
                 return i_val;
             }
+               case "SER_INVOICE_FORM_FV": {
+                return SER_INVOICE_FORM_FV;
+            }
+            
 
             /*Konec webových prvků*/
             /*Hodnoty webových prvků*/

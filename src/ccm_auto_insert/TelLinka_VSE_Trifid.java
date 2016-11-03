@@ -96,8 +96,8 @@ public class TelLinka_VSE_Trifid {
         WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))).click();
         
-        WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.name(HTML_identifier_library.id_aktivace_cui("i_val"))));
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_val"))).click();        
+//        WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.name(HTML_identifier_library.id_aktivace_cui("i_val"))));
+//        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_val"))).click();        
         
 
         WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id(HTML_identifier_library.id_aktivace_cui("CON_P_COMP_LAST_NAME_FV"))));

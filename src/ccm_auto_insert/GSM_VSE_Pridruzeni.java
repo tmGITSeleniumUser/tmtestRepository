@@ -94,8 +94,12 @@ public class GSM_VSE_Pridruzeni {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_DOC1_NUMBER_FV"))).sendKeys(nahodneCislo + "" + Keys.INSERT);  // Číslo dokumentu
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_VALID_DOC1_FV"))).sendKeys("1220" + Keys.INSERT);            // Platnost dokumentu
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_PASSWORD_FV"))).sendKeys("2015" + Keys.INSERT);              // Heslo
+
         // záložka Účtování
-//        driver.findElement(By.id("but3")).click();
+        driver.findElement(By.id("but3")).click();
+
+        Select droplistFormaFaktury = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_INVOICE_FORM_FV"))));   // forma faktury
+        droplistFormaFaktury.selectByVisibleText("Elektronická");
 //
 //        driver.findElement(By.id("ADR_BIL_FIRST_NAME_FV")).sendKeys("Jan" + Keys.INSERT);             // Jméno    
 //        driver.findElement(By.id("ADR_BIL_COMP_LAST_NAME_FV")).sendKeys("Pilný" + Keys.INSERT);       // Příjmení    

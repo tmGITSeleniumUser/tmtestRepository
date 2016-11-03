@@ -6,7 +6,6 @@ import java.util.Random;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -43,7 +42,9 @@ public class GSM_VSE extends JFrame {
 
         for (int i = 1; i <= pocetPocetZakazniku; i++) {
             Random rand = new Random();
-            int nahodneCislo = rand.nextInt(1000000000);
+            int nahodneCislo_Dokument = rand.nextInt(1000000000);
+            int nahodneCislo_Email = rand.nextInt(100000);
+            int nahodneCislo_TelKontakt = 1000 + rand.nextInt(9000);
             System.out.println("Průchod:" + i);
 
             String dnesniDatum = datum.vratAktualniDatum();
@@ -96,37 +97,38 @@ public class GSM_VSE extends JFrame {
             WebElement button_town = (new WebDriverWait(driver, 10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("ADR_CNR_TOWN_FV")));
             // záložka Zákazník
-            driver.findElement(By.id("CON_P_COMP_LAST_NAME_FV")).sendKeys("GSM_sro" + Keys.INSERT);  // obchodní název
-            driver.findElement(By.id("ADR_CNR_STREET_FV")).sendKeys("Táborská" + Keys.INSERT);            // Ulice              
-            driver.findElement(By.id("ADR_CNR_NUMBER_RED_FV")).sendKeys("32" + Keys.INSERT);            // číslo popisné
+            driver.findElement(By.id("CON_P_COMP_LAST_NAME_FV")).sendKeys("GSM_sro_" + nahodneCislo_Dokument + Keys.INSERT);  // obchodní název
+            driver.findElement(By.id("ADR_CNR_STREET_FV")).sendKeys("Na Pankráci" + Keys.INSERT);            // Ulice              
+            driver.findElement(By.id("ADR_CNR_NUMBER_RED_FV")).sendKeys("86" + Keys.INSERT);            // číslo popisné
             driver.findElement(By.id("ADR_CNR_TOWN_FV")).sendKeys("Praha" + Keys.INSERT);               // město
-            driver.findElement(By.id("ADR_CNR_ZIP_FV")).sendKeys("12800" + Keys.INSERT);                // PSČ
+            driver.findElement(By.id("ADR_CNR_ZIP_FV")).sendKeys("14000" + Keys.INSERT);                // PSČ
 
             // záložka ZO kontakt
             driver.findElement(By.id("but2")).click();
 
             driver.findElement(By.id("CON_I_FIRST_NAME_FV")).sendKeys("Jan" + Keys.INSERT);             // Jméno                  
-            driver.findElement(By.id("CON_I_COMP_LAST_NAME_FV")).sendKeys("Nový" + Keys.INSERT);        // Příjmení  
+            driver.findElement(By.id("CON_I_COMP_LAST_NAME_FV")).sendKeys("ZOočkový" + Keys.INSERT);        // Příjmení  
 
             driver.findElement(By.id("CON_I_BIRTH_NUMBER_FV")).sendKeys(rc = VerifiedRCDdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi) + "" + Keys.INSERT);    // Rodné číslo
-            driver.findElement(By.id("ADR_CNT_STREET_FV")).sendKeys("Táborská" + Keys.INSERT);           // Ulice         
-            driver.findElement(By.id("ADR_CNT_NUMBER_RED_FV")).sendKeys("32" + Keys.INSERT);           // Číslo popisné
+            driver.findElement(By.id("ADR_CNT_STREET_FV")).sendKeys("Na Pankráci" + Keys.INSERT);           // Ulice         
+            driver.findElement(By.id("ADR_CNT_NUMBER_RED_FV")).sendKeys("86" + Keys.INSERT);           // Číslo popisné
             driver.findElement(By.id("ADR_CNT_TOWN_FV")).sendKeys("Praha" + Keys.INSERT);               // Město
-            driver.findElement(By.id("ADR_CNT_ZIP_FV")).sendKeys("12800" + Keys.INSERT);                // PSČ
-            driver.findElement(By.id("CON_I_EMAIL_FV")).sendKeys("test@test.cz" + Keys.INSERT);         // Email
-            driver.findElement(By.id("CON_I_DOC1_NUMBER_FV")).sendKeys(nahodneCislo + "" + Keys.INSERT);            // Číslo dokumentu
+            driver.findElement(By.id("ADR_CNT_ZIP_FV")).sendKeys("14000" + Keys.INSERT);                // PSČ
+            driver.findElement(By.id("CON_I_EMAIL_FV")).sendKeys("test" + nahodneCislo_Email + "@gmail.cz" + Keys.INSERT);         // Email
+            driver.findElement(By.id("CON_I_MSISDN1_FV")).sendKeys("70260" + nahodneCislo_TelKontakt + Keys.INSERT);        // telefonní kontakt 
+            driver.findElement(By.id("CON_I_DOC1_NUMBER_FV")).sendKeys(nahodneCislo_Dokument + "" + Keys.INSERT);            // Číslo dokumentu
             driver.findElement(By.id("CON_I_VALID_DOC1_FV")).sendKeys("1220" + Keys.INSERT);            // Platnost dokumentu
             driver.findElement(By.id("CON_I_PASSWORD_FV")).sendKeys("2015" + Keys.INSERT);              // Heslo
 
             // záložka Účtování
             driver.findElement(By.id("but3")).click();
 
-            driver.findElement(By.id("ADR_BIL_FIRST_NAME_FV")).sendKeys("Jan" + Keys.INSERT);             // Jméno    
-            driver.findElement(By.id("ADR_BIL_COMP_LAST_NAME_FV")).sendKeys("Pilný" + Keys.INSERT);       // Příjmení    
-            driver.findElement(By.id("ADR_BIL_STREET_FV")).sendKeys("Táborská" + Keys.INSERT);              // Ulice    
-            driver.findElement(By.id("ADR_BIL_NUMBER_RED_FV")).sendKeys("12" + Keys.INSERT);              // Číslo popisné    
+            driver.findElement(By.id("ADR_BIL_FIRST_NAME_FV")).sendKeys("Petr" + Keys.INSERT);             // Jméno    
+            driver.findElement(By.id("ADR_BIL_COMP_LAST_NAME_FV")).sendKeys("BAčkový" + Keys.INSERT);       // Příjmení    
+            driver.findElement(By.id("ADR_BIL_STREET_FV")).sendKeys("Na Pankráci" + Keys.INSERT);              // Ulice    
+            driver.findElement(By.id("ADR_BIL_NUMBER_RED_FV")).sendKeys("86" + Keys.INSERT);              // Číslo popisné    
             driver.findElement(By.id("ADR_BIL_TOWN_FV")).sendKeys("Praha" + Keys.INSERT);                 // Město    
-            driver.findElement(By.id("ADR_BIL_ZIP_FV")).sendKeys("12800" + Keys.INSERT);                  // PSČ    
+            driver.findElement(By.id("ADR_BIL_ZIP_FV")).sendKeys("14000" + Keys.INSERT);                  // PSČ    
 
             Select droplistOS = new Select(driver.findElement(By.id("ADR_BIL_QCUSSAL_ID_FV")));
             droplistOS.selectByVisibleText("Vážený zákazníku");
@@ -149,23 +151,24 @@ public class GSM_VSE extends JFrame {
 //        Select droplistKraj = new Select(driver.findElement(By.id("SUB_SIMTYPE_FV")));                  // vybrání SIM karty
 //        droplistKraj.selectByVisibleText("NFC512 - Universal SIM, Micro");
             Select droplistTarif = new Select(driver.findElement(By.id("SUB_QPROTAR_QPROTAR_ID_FV")));                  // vybrání SIM karty
-            droplistTarif.selectByVisibleText("S námi síť nesíť v podnikání");
+            droplistTarif.selectByVisibleText("T 160");
+            driver.findElement(By.id("SER_DIRNUM_MMS_FV")).click();
 
 //        Select droplistKraj = new Select(driver.findElement(By.id("ADR_FIX_REGION_FV")));
 //        droplistKraj.selectByVisibleText("Hlavní město Praha");
             driver.findElement(By.id("SER_SIGNATURE_DATE_FV")).sendKeys(dnesniDatum + "" + Keys.INSERT);   //datum podpisu objednávky
-            
+
             //Select droplistVSEKontrakt = new Select(driver.findElement(By.id("SER_VSE_CONTRACT_FV")));                  // VSE kontrakt
             //droplistVSEKontrakt.selectByVisibleText("Uzavřít VSE kontrakt");
-
             driver.findElement(By.id("but7")).click(); // Kontrola
 
             WebElement button_zalozka_sluzby = (new WebDriverWait(driver, 10)) /*čekání na prvek*/
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("but4")));
 
-            driver.findElement(By.id("but4")).click(); /* Založka služby*/
+            driver.findElement(By.id("but4")).click();
+            /* Založka služby*/
 
-            /*Toto řeší uložení MSISDN do souboru*/
+ /*Toto řeší uložení MSISDN do souboru*/
             System.out.println(driver.findElement(By.id("SUB_MSISDN_FV_RO")).getAttribute("value"));
 
             OutputInputFile.writeMSISDN(driver.findElement(By.id("SUB_MSISDN_FV_RO")).getAttribute("value"), SQL_selects.IMSIDdatabase(dbConnection.dbConnection_qap(testProstredi), testProstredi, driver.findElement(By.id("SUB_ICCID_FV")).getAttribute("value")));
@@ -173,10 +176,8 @@ public class GSM_VSE extends JFrame {
             driver.findElement(By.id("but6")).click();
 
             PomocneFunkce.BackToHome(driver);
-            
-            
-            hotovoZakazniku.setText(String.valueOf(i));
 
+            hotovoZakazniku.setText(String.valueOf(i));
 
         }
         if (auto_finished == true) {

@@ -68,6 +68,14 @@ public class TCloud {
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click();
         driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[21]/td/a")).click();  // aktivace nového zákazníka
         //driver.findElement(By.xpath(("/html/body/center/form/input[6]"))).click();
+        //driver.findElement(By.id("i_val")).click();
+        
+      
+            
+            
+            
+            
+       
 
         // záložka Zákazník
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_P_COMP_LAST_NAME_FV"))).sendKeys("Tcloud_zakaznik" + Keys.INSERT);  // obchodní název

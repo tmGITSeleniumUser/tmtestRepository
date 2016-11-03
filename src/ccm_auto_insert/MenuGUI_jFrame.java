@@ -963,7 +963,11 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(frame, "Nejdříve vyplň telefonní čislo k přiřazení");
         } else {
             int telCisloProPridruzeniInt = Integer.parseInt(telCisloProPridruzeniString);
-            GSM_VSE_Pridruzeni.proved_GSM_VSE_Pridruzeni_skript(telCisloProPridruzeniInt, prostredi);
+            try {
+                GSM_VSE_Pridruzeni.proved_GSM_VSE_Pridruzeni_skript(telCisloProPridruzeniInt, prostredi);
+            } catch (SQLException ex) {
+                Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_GSM_VSE_pridruzeni_buttonActionPerformed
 
