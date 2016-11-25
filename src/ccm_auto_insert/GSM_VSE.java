@@ -148,11 +148,11 @@ public class GSM_VSE extends JFrame {
 //        driver.findElement(By.id("ADR_FIX_ZIP_FV")).sendKeys("48963" + Keys.INSERT);                  // PSČ   
             driver.findElement(By.id("REQ_SELLER_CODE_FV")).sendKeys("PGSA7.001.001" + Keys.INSERT);      // outlet
 
-//        Select droplistKraj = new Select(driver.findElement(By.id("SUB_SIMTYPE_FV")));                  // vybrání SIM karty
-//        droplistKraj.selectByVisibleText("NFC512 - Universal SIM, Micro");
-            Select droplistTarif = new Select(driver.findElement(By.id("SUB_QPROTAR_QPROTAR_ID_FV")));                  // vybrání SIM karty
-            droplistTarif.selectByVisibleText("T 160");
-            driver.findElement(By.id("SER_DIRNUM_MMS_FV")).click();
+            Select droplistTypSimKarty = new Select(driver.findElement(By.id("SUB_SIMTYPE_FV")));                  // vybrání SIM karty
+            droplistTypSimKarty.selectByVisibleText("Universal SIM");
+            Select droplistTarif = new Select(driver.findElement(By.id("SUB_QPROTAR_QPROTAR_ID_FV")));                  // vybrání tarifu
+            droplistTarif.selectByVisibleText("T 1500 HIT");
+            //   driver.findElement(By.id("SER_DIRNUM_MMS_FV")).click();
 
 //        Select droplistKraj = new Select(driver.findElement(By.id("ADR_FIX_REGION_FV")));
 //        droplistKraj.selectByVisibleText("Hlavní město Praha");

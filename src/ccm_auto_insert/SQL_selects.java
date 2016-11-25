@@ -16,6 +16,7 @@ import java.sql.Statement;
  * @author Petr
  */
 public class SQL_selects {
+
     /*Vrací prostředí pro DB*/
 
     public static String fun_prostredi(int back_prostredi) {
@@ -29,6 +30,7 @@ public class SQL_selects {
         }
         return str_prostredi;
     }
+
     /*Vraci volne ICO z DB*/
 
     public static String ICOdatabase(Connection con, int prostredi) throws SQLException {
@@ -66,6 +68,7 @@ public class SQL_selects {
         return ICO;
 
     }
+
     /*Vrací volné ICCID*/
 
     public static String ICCIDdatabase(Connection con, int prostredi) throws SQLException {
@@ -82,6 +85,9 @@ public class SQL_selects {
                 + "AND DCDSEH_DCDSEH_ID = '15444'\n"
                 + "AND F_LOGASL_ID is null\n"
                 + "AND ASSIGN_DAT is null\n"
+                + "and RSTEP_RSTEP_ID = 89\n"
+                + "and RSTGP_RSTGP_ID = 87\n"
+                + "and RSTVE_RSTVE_COD = 30014\n"
                 + "AND ROWNUM <2\n";
 
         stmt = con.createStatement();
@@ -95,6 +101,7 @@ public class SQL_selects {
         return ICCID;
 
     }
+
     /*Vyber cisla karty pro voip*/
 
     public static String ICCIDVoip(Connection con, int prostredi) throws SQLException {
@@ -149,6 +156,7 @@ public class SQL_selects {
         return IMSI;
 
     }
+
     /*Vrací ExtCUID pro VOIPNG*/
 
     public static String ExtCUID(Connection con, int prostredi, String IDZadostiCCM) throws SQLException {
