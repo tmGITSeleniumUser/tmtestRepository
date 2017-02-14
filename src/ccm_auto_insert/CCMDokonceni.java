@@ -71,9 +71,11 @@ public class CCMDokonceni {
 
 //            driver.findElement(By.id("but4")).click();
 //            driver.findElement(By.id("SER_DIRNUM_MMS_FV")).click();
-
             WebElement button_odeslat = (new WebDriverWait(driver, 20)) /*čekání na prvek*/
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("but8")));
+
+            driver.findElement(By.id("but4")).click();
+            driver.findElement(By.id("SER_DIRNUM_MMS_FV")).click();
 
             driver.findElement(By.id("but8")).click(); // Odeslat zadost
 

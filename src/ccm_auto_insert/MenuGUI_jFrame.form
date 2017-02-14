@@ -32,11 +32,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jTextField_ICO" min="-2" pref="130" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="405" max="-2" attributes="0"/>
               <Component id="jButtonKonec" min="-2" pref="145" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -53,13 +49,7 @@
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Component id="jTabbedPane1" max="32767" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="jTextField_ICO" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jButtonKonec" alignment="1" min="-2" pref="34" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jButtonKonec" min="-2" pref="34" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -129,9 +119,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel2" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel2" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldCisloKPridruzeni" min="-2" pref="187" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jTextFieldCisloKPridruzeni" pref="187" max="32767" attributes="0"/>
+                                  <Component id="jTextField_ICO" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -167,6 +163,11 @@
                                           <Component id="jTextFieldCisloKPridruzeni" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="cuid_predseda" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jTextField_ICO" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -320,6 +321,8 @@
                               <Component id="jButton_Tel_linka_Postpaid_Trifid_nova_faktura" alignment="0" max="32767" attributes="0"/>
                               <Component id="GSM_Postpaid_pridruzeni_button" alignment="0" max="32767" attributes="0"/>
                               <Component id="GSM_VSE_pridruzeni_button" alignment="0" max="32767" attributes="0"/>
+                              <Component id="GSM_aktivace_potenciala" alignment="0" max="32767" attributes="0"/>
+                              <Component id="GSM_LE_s_BA" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
@@ -344,7 +347,11 @@
                           <Component id="GSM_VSE_pridruzeni_button" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="GSM_VSE_nova_faktura" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="GSM_aktivace_potenciala" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="GSM_LE_s_BA" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -452,6 +459,22 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GSM_VSE_nova_fakturaActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="GSM_aktivace_potenciala">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="GSM aktivaci potenci&#xe1;la z ngCRM"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GSM_aktivace_potencialaActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="GSM_LE_s_BA">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="GSM LE P&#x159;idru&#x17e;en&#xed; do BA"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GSM_LE_s_BAActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -791,6 +814,13 @@
                 <Property name="text" type="java.lang.String" value="Spl&#xe1;tkov&#xfd; kalend&#xe1;&#x159;"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="vlo&#x17e;te I&#x10c;O"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField_ICO">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
@@ -1024,13 +1054,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonKonecActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField_ICO">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="vlo&#x17e;te I&#x10c;O"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
