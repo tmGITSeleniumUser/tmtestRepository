@@ -27,7 +27,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DSL_SIMPLE_VSE_SME {
 
-    static void proved_DSL_SIMPLE_VSE_SME_skript(int ICO, int testProstredi) throws InterruptedException {
+    static void proved_DSL_SIMPLE_VSE_SME_skript(String ICO, int testProstredi) throws InterruptedException {
                 //set the system property for Internet Explorer  
 //        System.setProperty("webdriver.ie.driver", "Location of IE Driver");
         // System.setProperty("webdriver.ie.driver", "C:\\Users\\nikola\\Desktop\\T-mobile Testing\\IE DRIVER\\IEDriverServer.exe");

@@ -24,7 +24,8 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         initComponents();
 //        this.MobilCZ_VSE_button.setVisible(false);
 //        this.MobilCZ_Postpaid_button.setVisible(false);
-
+    
+        
     }
 
 //    public static void main(String[] args) {
@@ -120,6 +121,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 0, 0));
 
         jButton_Tel_linka_Postpaid_NGOSIP.setText("Telefonní linka - Postpaid - NGOSIP");
+        jButton_Tel_linka_Postpaid_NGOSIP.setEnabled(false);
         jButton_Tel_linka_Postpaid_NGOSIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_Tel_linka_Postpaid_NGOSIPActionPerformed(evt);
@@ -127,6 +129,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         });
 
         jButton_Tel_linka_Postpaid_Trifid.setText("Telefonní linka - Postpaid - Trifid");
+        jButton_Tel_linka_Postpaid_Trifid.setEnabled(false);
         jButton_Tel_linka_Postpaid_Trifid.setPreferredSize(new java.awt.Dimension(233, 25));
         jButton_Tel_linka_Postpaid_Trifid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +138,8 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         });
 
         GSM_Postpaid_button.setText("GSM Postpaid");
+        GSM_Postpaid_button.setCursor(new java.awt.Cursor(java.awt.Cursor.SW_RESIZE_CURSOR));
+        GSM_Postpaid_button.setEnabled(false);
         GSM_Postpaid_button.setMaximumSize(new java.awt.Dimension(233, 25));
         GSM_Postpaid_button.setMinimumSize(new java.awt.Dimension(233, 25));
         GSM_Postpaid_button.setPreferredSize(new java.awt.Dimension(233, 25));
@@ -453,6 +458,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         jRadioButton_test1.setText("test1");
 
         mojeGroupa.add(jRadioButton_test2);
+        jRadioButton_test2.setSelected(true);
         jRadioButton_test2.setText("test2");
 
         jLabel2.setText("Vložte tel. číslo");
@@ -532,7 +538,6 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         jLabel1.setText("vložte IČO");
 
         mojeGroupa.add(jRadioButton_test3);
-        jRadioButton_test3.setSelected(true);
         jRadioButton_test3.setText("test3");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -836,7 +841,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     private void jButtonKonecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKonecActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonKonecActionPerformed
-
+    
     public int funkceHodnotaButtonu_Prostredi() {
         int hodnota = 0;
         if (jRadioButton_test1.isSelected() == true) {
@@ -848,7 +853,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         }
         return hodnota;
     }
-
+    
     public String mobilcz_tarif() {
         String retezec = "MOBIL.CZ STANDARD";
         if (jRadioButton1_tarif.isSelected() == true) {
@@ -858,10 +863,10 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         }
         return retezec;
     }
-
+    
 
     private void jButton_Tel_linka_VSEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Tel_linka_VSEActionPerformed
-
+        
         int prostredi = funkceHodnotaButtonu_Prostredi();
 //        String ICOString = jTextField_ICO.getText();
 //        if (jTextField_ICO.getText().equals("")) {
@@ -871,15 +876,13 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
 //            int ICOInt = Integer.parseInt(ICOString);
         try {
             TelLinka_VSE_Trifid.proved_TelLinka_VSE_skript(prostredi);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (InterruptedException | SQLException ex) {
             Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
 
     }//GEN-LAST:event_jButton_Tel_linka_VSEActionPerformed
-
+    
 
     private void jButton_Tel_linka_Postpaid_NGOSIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Tel_linka_Postpaid_NGOSIPActionPerformed
         int prostredi = funkceHodnotaButtonu_Prostredi();
@@ -928,7 +931,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_VSE_AutoparkActionPerformed
 
     private void jButton_Tel_linka_VSE_Trifid_PridruzeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Tel_linka_VSE_Trifid_PridruzeniActionPerformed
-
+        
         int prostredi = funkceHodnotaButtonu_Prostredi();
         String telCisloProPridruzeniString = jTextFieldCisloKPridruzeni.getText();
         if (jTextFieldCisloKPridruzeni.getText().equals("")) {
@@ -998,7 +1001,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_GSM_Postpaid_buttonActionPerformed
 
     private void GSM_VSE_pridruzeni_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GSM_VSE_pridruzeni_buttonActionPerformed
-
+        
         int prostredi = funkceHodnotaButtonu_Prostredi();
         String telCisloProPridruzeniString = jTextFieldCisloKPridruzeni.getText();
         if (jTextFieldCisloKPridruzeni.getText().equals("")) {
@@ -1098,20 +1101,19 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Nejdříve vyplň hodnotu IČO");
         } else {
-            int ICOInt = Integer.parseInt(ICOString);
-
+            
             try {
-                xDSL_VSE.proved_xDSL_VSE_skript(ICOInt, prostredi);
-
+                xDSL_VSE.proved_xDSL_VSE_skript(ICOString, prostredi);
+                
             } catch (InterruptedException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }
     }//GEN-LAST:event_DSLMulti_VSE_buttonActionPerformed
 
     private void telefonni_linka_vse_ngosip_ascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonni_linka_vse_ngosip_ascActionPerformed
-
+        
         int prostredi = funkceHodnotaButtonu_Prostredi();
 //        String ICOString = jTextField_ICO.getText();
 //        if (jTextField_ICO.getText().equals("")) {
@@ -1126,13 +1128,13 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_telefonni_linka_vse_ngosip_ascActionPerformed
-
+    
 
     private void VSE_voipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VSE_voipActionPerformed
         int prostredi = funkceHodnotaButtonu_Prostredi();
         int Zakaznici_pocet = (int) pocetZakazniku.getValue();
         boolean dokoncit = jCheckBox1_dokoncit.isSelected();
-
+        
         try {
             TelLinka_VSE_Voip.proved_TelLinka_VSE_Voip_skript(prostredi, Zakaznici_pocet, dokoncit);
         } catch (SQLException ex) {
@@ -1142,7 +1144,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
 
     private void Lessana_GSM_postpaidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lessana_GSM_postpaidActionPerformed
         int prostredi = funkceHodnotaButtonu_Prostredi();
-
+        
         String predseda = cuid_predseda.getText();
         if (cuid_predseda.getText().equals("")) {
             Component frame = null;
@@ -1153,7 +1155,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_Lessana_GSM_postpaidActionPerformed
 
     private void GSM_VSE_nova_fakturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GSM_VSE_nova_fakturaActionPerformed
-
+        
         int prostredi = funkceHodnotaButtonu_Prostredi();
         String telCisloProPridruzeniString = jTextFieldCisloKPridruzeni.getText();
         if (jTextFieldCisloKPridruzeni.getText().equals("")) {
@@ -1172,22 +1174,21 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Nejdříve vyplň hodnotu IČO");
         } else {
-            int ICOInt = Integer.parseInt(ICOString);
             try {
-                DSL_SIMPLE_VSE_SME.proved_DSL_SIMPLE_VSE_SME_skript(ICOInt, prostredi);
+                DSL_SIMPLE_VSE_SME.proved_DSL_SIMPLE_VSE_SME_skript(ICOString, prostredi);
 
                 //xDSL_VSE.telLinka(ICOInt, hodnotaButtonu);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }  // TODO add your handling code here:
     }//GEN-LAST:event_DSLSimple_VSE_buttonActionPerformed
 
     private void jButton_CCM_dokonceni_zadostiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_CCM_dokonceni_zadostiActionPerformed
         int prostredi = funkceHodnotaButtonu_Prostredi();
         int Zakaznici_pocet = (int) pocetZakazniku.getValue();
-
+        
         try {
             CCMDokonceni.dokonceni(prostredi, Zakaznici_pocet);
         } catch (SQLException ex) {
@@ -1235,22 +1236,21 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        
 
     }//GEN-LAST:event_jButtonTCloudActionPerformed
 
     private void GSM_aktivace_potencialaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GSM_aktivace_potencialaActionPerformed
         int prostredi = funkceHodnotaButtonu_Prostredi();
-        int Zakaznici_pocet = (int) pocetZakazniku.getValue();
-        boolean dokoncit = jCheckBox1_dokoncit.isSelected();
+//        int Zakaznici_pocet = (int) pocetZakazniku.getValue();
+//        boolean dokoncit = jCheckBox1_dokoncit.isSelected();
         String ICOString = jTextField_ICO.getText();
         if (jTextField_ICO.getText().equals("")) {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Nejdříve vyplň hodnotu IČO");
         } else {
-            int ICOInt = Integer.parseInt(ICOString);
             try {
-                GSM_VSE_Potencial_ngCRM.proved_GSM_VSE_skript(prostredi, ICOInt);
+                GSM_VSE_Potencial_ngCRM.proved_GSM_VSE_skript(prostredi, ICOString);
             } catch (SQLException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -1266,13 +1266,12 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Nejdříve vyplň hodnotu IČO");
         } else {
-            int ICOInt = Integer.parseInt(ICOString);
             try {
-                GSM_LE_Pridruzeni_s_BA.proved_GSM_LE_pridruzeni_sBA_skript(prostredi, ICOInt);
+                GSM_LE_Pridruzeni_s_BA.proved_GSM_LE_pridruzeni_sBA_skript(prostredi, ICOString);
             } catch (SQLException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }
     }//GEN-LAST:event_GSM_LE_s_BAActionPerformed
 
@@ -1285,13 +1284,13 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             Component frame = null;
             JOptionPane.showMessageDialog(frame, "Nejdříve vyplň hodnotu IČO");
         } else {
-            int ICOInt = Integer.parseInt(ICOString);
+            
             try {
-                GSM_LE_Pridruzeni_bez_BA.proved_GSM_LE_pridruzeni_sBA_skript(prostredi, ICOInt);
+                GSM_LE_Pridruzeni_bez_BA.proved_GSM_LE_pridruzeni_sBA_skript(prostredi, ICOString);
             } catch (SQLException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }
     }//GEN-LAST:event_GSM_LE_bez_BAActionPerformed
 
@@ -1309,7 +1308,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
+                    
                 }
             }
         } catch (ClassNotFoundException ex) {

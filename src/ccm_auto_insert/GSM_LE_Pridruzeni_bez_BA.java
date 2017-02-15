@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GSM_LE_Pridruzeni_bez_BA extends JFrame {
 
-    static void proved_GSM_LE_pridruzeni_sBA_skript(int testProstredi, int ICO) throws SQLException {
+    static void proved_GSM_LE_pridruzeni_sBA_skript(int testProstredi, String ICO) throws SQLException {
 
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile myprofile = profile.getProfile("default");

@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GSM_VSE_Potencial_ngCRM extends JFrame {
 
-    static void proved_GSM_VSE_skript(int testProstredi, int ICO) throws SQLException {
+    static void proved_GSM_VSE_skript(int testProstredi, String ICO) throws SQLException {
 
         // System.setProperty("webdriver.ie.driver", "C:/Users/oholik/Desktop/Selenium/selenium-java-2.45.0/IEDriverServer.exe");
         //  InternetExplorerDriver IEDriver = new InternetExplorerDriver();
