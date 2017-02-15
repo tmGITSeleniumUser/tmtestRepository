@@ -18,7 +18,6 @@ import java.sql.Statement;
 public class SQL_selects {
 
     /*Vrací prostředí pro DB*/
-
     public static String fun_prostredi(int back_prostredi) {
         String str_prostredi = null;
 
@@ -32,7 +31,6 @@ public class SQL_selects {
     }
 
     /*Vraci volne ICO z DB*/
-
     public static String ICOdatabase(Connection con, int prostredi) throws SQLException {
         String ICO = null;
         Statement stmt = null;
@@ -70,7 +68,6 @@ public class SQL_selects {
     }
 
     /*Vrací volné ICCID*/
-
     public static String ICCIDdatabase(Connection con, int prostredi) throws SQLException {
 
         String ICCID = null;
@@ -102,8 +99,36 @@ public class SQL_selects {
 
     }
 
-    /*Vyber cisla karty pro voip*/
+    public static String MSISDNforLE(Connection con, int prostredi) throws SQLException {
 
+        String MSISDN = null;
+        Statement stmt = null;
+
+        String query
+                = "select DN_NUM from sy_rst.rst_MSISDN_pool\n"
+                + "where DNSEGMENT = 4\n"
+                + "and DNSTATUS = 'R'\n"
+                + "and ORIGIN = 1\n"
+                + "and SAC_DN = 73\n"
+                + "and OP_ID = 205\n"
+                + "and CUST_RES is null\n"
+                + "AND F_LOGASL_ID is null\n"
+                + "AND LOCK_REQ_ID is null\n"
+                + "and ROWNUM=1";
+
+        stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+
+        while (rs.next()) {
+            MSISDN = rs.getString("DN_NUM");
+            System.out.println("MSISDN " + MSISDN);
+        }
+        con.close();
+        return MSISDN;
+
+    }
+
+    /*Vyber cisla karty pro voip*/
     public static String ICCIDVoip(Connection con, int prostredi) throws SQLException {
 
         String ICCID = null;
@@ -158,7 +183,6 @@ public class SQL_selects {
     }
 
     /*Vrací ExtCUID pro VOIPNG*/
-
     public static String ExtCUID(Connection con, int prostredi, String IDZadostiCCM) throws SQLException {
 
         String ExtCUID = null;

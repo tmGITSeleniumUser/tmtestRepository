@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GSM_LE_Pridruzeni_s_BA extends JFrame {
+public class GSM_LE_Pridruzeni_bez_BA extends JFrame {
 
     static void proved_GSM_LE_pridruzeni_sBA_skript(int testProstredi, int ICO) throws SQLException {
 
@@ -62,8 +62,8 @@ public class GSM_LE_Pridruzeni_s_BA extends JFrame {
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
         WebElement button_activation = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/a[11]/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]"))); //kontrola tlačítka Aktivace
         driver.findElement(By.xpath("/html/body/a[11]/table[2]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]")).click(); // Aktivace
-        WebElement button_new_customer = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.partialLinkText("Aktivace běžná - Aktivace SIM klíčového zákazníka"))); //kontrola tlačítka Aktivace běžná - Aktivace SIM klíčového zákazníka 
-        driver.findElement(By.partialLinkText("Aktivace běžná - Aktivace SIM klíčového zákazníka")).click(); //Aktivace běžná - Aktivace SIM klíčového zákazníka
+        WebElement button_new_customer = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.partialLinkText("Aktivace - Nová faktura klíčového zákazníka"))); //kontrola tlačítka Aktivace - Nová faktura klíčového zákazníka
+        driver.findElement(By.partialLinkText("Aktivace - Nová faktura klíčového zákazníka")).click(); //Aktivace - Nová faktura klíčového zákazníka
 
         if (PomocneFunkce.existsElement(driver, "/html/body/center/form/input[6]")) {
             WebElement button_siebel = (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/center/form/input[6]")));
@@ -93,14 +93,16 @@ public class GSM_LE_Pridruzeni_s_BA extends JFrame {
         // záložka Účtování
         driver.findElement(By.id("but3")).click();
 
-//            driver.findElement(By.id("ADR_BIL_FIRST_NAME_FV")).sendKeys("Petr" + Keys.INSERT);             // Jméno    
-//            driver.findElement(By.id("ADR_BIL_COMP_LAST_NAME_FV")).sendKeys("BAčkový" + Keys.INSERT);       // Příjmení    
-//            driver.findElement(By.id("ADR_BIL_STREET_FV")).sendKeys("Na Pankráci" + Keys.INSERT);              // Ulice    
-//            driver.findElement(By.id("ADR_BIL_NUMBER_RED_FV")).sendKeys("86" + Keys.INSERT);              // Číslo popisné    
-//            driver.findElement(By.id("ADR_BIL_TOWN_FV")).sendKeys("Praha" + Keys.INSERT);                 // Město    
-//            driver.findElement(By.id("ADR_BIL_ZIP_FV")).sendKeys("14000" + Keys.INSERT);                  // PSČ    
-//            Select droplistOS = new Select(driver.findElement(By.id("ADR_BIL_QCUSSAL_ID_FV")));
-//            droplistOS.selectByVisibleText("Vážený zákazníku");
+        driver.findElement(By.id("UNI_BA_NAME_FV")).sendKeys("BA_" + ICO + Keys.INSERT);                     // Název fakturační skupiny        
+        driver.findElement(By.id("ADR_BIL_FIRST_NAME_FV")).sendKeys("Petr" + Keys.INSERT);             // Jméno    
+        driver.findElement(By.id("ADR_BIL_COMP_LAST_NAME_FV")).sendKeys("BAčkový" + Keys.INSERT);       // Příjmení    
+        driver.findElement(By.id("ADR_BIL_STREET_FV")).sendKeys("Na Pankráci" + Keys.INSERT);              // Ulice    
+        driver.findElement(By.id("ADR_BIL_NUMBER_RED_FV")).sendKeys("86" + Keys.INSERT);              // Číslo popisné    
+        driver.findElement(By.id("ADR_BIL_TOWN_FV")).sendKeys("Praha" + Keys.INSERT);                 // Město    
+        driver.findElement(By.id("ADR_BIL_ZIP_FV")).sendKeys("14000" + Keys.INSERT);                  // PSČ    
+        Select droplistOS = new Select(driver.findElement(By.id("ADR_BIL_QCUSSAL_ID_FV")));
+        droplistOS.selectByVisibleText("Vážený zákazníku");
+
         // záložka Služby
         driver.findElement(By.id("but4")).click();
         driver.findElement(By.id("SER_VPN_FV")).click();                                                    // vypnutí Privátní podniková síť

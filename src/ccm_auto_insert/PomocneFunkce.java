@@ -21,13 +21,19 @@ public class PomocneFunkce {
 
     public String nastavURLTestovacihoProstredi(int hodnota) {
         String odkazTest = null;
-        if (hodnota == 1) {
-            odkazTest = "https://qdealers.cz.tmo/ap01/cui_web_search_entry.cui_startup?";
-            //odkazTest = "https://tst001:paegas@qdealers.cz.tmo/ap01/cui_web_search_entry.cui_startup/";
-
-        } else if (hodnota == 2) {
-            odkazTest = "https://q2dealers.cz.tmo/ap01/cui_web_search_entry.cui_startup?";
-
+        switch (hodnota) {
+            case 1:
+                odkazTest = "https://qdealers.cz.tmo/ap01/cui_web_search_entry.cui_startup?";
+                //odkazTest = "https://tst001:paegas@qdealers.cz.tmo/ap01/cui_web_search_entry.cui_startup/";
+                break;
+            case 2:
+                odkazTest = "https://q2dealers.cz.tmo/ap01/cui_web_search_entry.cui_startup?";
+                break;
+            case 3:
+                odkazTest = "https://q3dealers.cz.tmo/ap01/cui_web_search_entry.cui_startup?";
+                break;
+            default:
+                break;
         }
         return odkazTest;
 

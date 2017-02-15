@@ -96,7 +96,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
@@ -107,10 +107,14 @@
                                           <Component id="jButton4_CLF_check" min="-2" pref="235" max="-2" attributes="0"/>
                                           <Component id="jButton5_ODS_check" min="-2" pref="235" max="-2" attributes="0"/>
                                           <Component id="jLabel12" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox1_dokoncit" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
                                           <Component id="jCheckBox1_splatkac" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jCheckBox1_dokoncit" min="-2" pref="235" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jRadioButton_test3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -194,7 +198,10 @@
                                           <Component id="jRadioButton_test2" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox1_dokoncit" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jCheckBox1_dokoncit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton_test3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox1_splatkac" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
@@ -323,6 +330,7 @@
                               <Component id="GSM_VSE_pridruzeni_button" alignment="0" max="32767" attributes="0"/>
                               <Component id="GSM_aktivace_potenciala" alignment="0" max="32767" attributes="0"/>
                               <Component id="GSM_LE_s_BA" alignment="0" max="32767" attributes="0"/>
+                              <Component id="GSM_LE_bez_BA" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="24" max="32767" attributes="0"/>
                       </Group>
@@ -351,7 +359,9 @@
                           <Component id="GSM_aktivace_potenciala" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="GSM_LE_s_BA" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="GSM_LE_bez_BA" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -475,6 +485,14 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GSM_LE_s_BAActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="GSM_LE_bez_BA">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="GSM LE P&#x159;idru&#x17e;en&#xed; bez BA"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GSM_LE_bez_BAActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -678,7 +696,6 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mojeGroupa"/>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="test2"/>
               </Properties>
             </Component>
@@ -820,6 +837,15 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField_ICO">
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="jRadioButton_test3">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="mojeGroupa"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="test3"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

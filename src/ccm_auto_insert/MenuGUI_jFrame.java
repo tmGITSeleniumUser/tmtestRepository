@@ -61,6 +61,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         GSM_VSE_nova_faktura = new javax.swing.JButton();
         GSM_aktivace_potenciala = new javax.swing.JButton();
         GSM_LE_s_BA = new javax.swing.JButton();
+        GSM_LE_bez_BA = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         GSM_VSE_button = new javax.swing.JButton();
         jButton_VSE_Autopark = new javax.swing.JButton();
@@ -93,6 +94,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         jCheckBox1_splatkac = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         jTextField_ICO = new javax.swing.JTextField();
+        jRadioButton_test3 = new javax.swing.JRadioButton();
         jPanel4 = new javax.swing.JPanel();
         MobilCZ_VSE_button = new javax.swing.JButton();
         MobilCZ_Postpaid_button = new javax.swing.JButton();
@@ -255,6 +257,13 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
             }
         });
 
+        GSM_LE_bez_BA.setText("GSM LE Přidružení bez BA");
+        GSM_LE_bez_BA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GSM_LE_bez_BAActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -271,7 +280,8 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                     .addComponent(GSM_Postpaid_pridruzeni_button, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(GSM_VSE_pridruzeni_button, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(GSM_aktivace_potenciala, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(GSM_LE_s_BA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(GSM_LE_s_BA, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(GSM_LE_bez_BA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -297,7 +307,9 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                 .addComponent(GSM_aktivace_potenciala)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(GSM_LE_s_BA)
-                .addGap(204, 204, 204))
+                .addGap(18, 18, 18)
+                .addComponent(GSM_LE_bez_BA)
+                .addGap(170, 170, 170))
         );
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 51));
@@ -441,7 +453,6 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         jRadioButton_test1.setText("test1");
 
         mojeGroupa.add(jRadioButton_test2);
-        jRadioButton_test2.setSelected(true);
         jRadioButton_test2.setText("test2");
 
         jLabel2.setText("Vložte tel. číslo");
@@ -520,6 +531,10 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
 
         jLabel1.setText("vložte IČO");
 
+        mojeGroupa.add(jRadioButton_test3);
+        jRadioButton_test3.setSelected(true);
+        jRadioButton_test3.setText("test3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -551,9 +566,12 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                                     .addComponent(jButton4_CLF_check, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButton5_ODS_check, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jCheckBox1_dokoncit, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jCheckBox1_splatkac))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jCheckBox1_dokoncit, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton_test3)))))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -615,7 +633,9 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                                     .addComponent(jTextField3_pocetZakazniku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jRadioButton_test2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox1_dokoncit)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jCheckBox1_dokoncit)
+                                    .addComponent(jRadioButton_test3))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jCheckBox1_splatkac)
                                 .addGap(67, 67, 67)
@@ -818,11 +838,13 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonKonecActionPerformed
 
     public int funkceHodnotaButtonu_Prostredi() {
-        int hodnota;
+        int hodnota = 0;
         if (jRadioButton_test1.isSelected() == true) {
             hodnota = 1;
-        } else {
+        } else if (jRadioButton_test2.isSelected() == true) {
             hodnota = 2;
+        } else if (jRadioButton_test3.isSelected() == true) {
+            hodnota = 3;
         }
         return hodnota;
     }
@@ -963,7 +985,6 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
 //         } else {
 //         int ICOInt = Integer.parseInt(ICOString);
 
-        GSM_VSE provedAkci = new GSM_VSE();
         try {
             GSM_VSE.proved_GSM_VSE_skript(prostredi, Zakaznici_pocet, dokoncit, jTextField3_pocetZakazniku);
         } catch (SQLException ex) {
@@ -1238,8 +1259,8 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
 
     private void GSM_LE_s_BAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GSM_LE_s_BAActionPerformed
         int prostredi = funkceHodnotaButtonu_Prostredi();
-        int Zakaznici_pocet = (int) pocetZakazniku.getValue();
-        boolean dokoncit = jCheckBox1_dokoncit.isSelected();
+//        int Zakaznici_pocet = (int) pocetZakazniku.getValue();
+//        boolean dokoncit = jCheckBox1_dokoncit.isSelected();
         String ICOString = jTextField_ICO.getText();
         if (jTextField_ICO.getText().equals("")) {
             Component frame = null;
@@ -1247,14 +1268,32 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
         } else {
             int ICOInt = Integer.parseInt(ICOString);
             try {
-                GSM_LE_Pridruzeni_s_BA.proved_GSM_LE_pridruzeni_skript(prostredi, ICOInt);
+                GSM_LE_Pridruzeni_s_BA.proved_GSM_LE_pridruzeni_sBA_skript(prostredi, ICOInt);
             } catch (SQLException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-         
 
         }
     }//GEN-LAST:event_GSM_LE_s_BAActionPerformed
+
+    private void GSM_LE_bez_BAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GSM_LE_bez_BAActionPerformed
+        int prostredi = funkceHodnotaButtonu_Prostredi();
+//        int Zakaznici_pocet = (int) pocetZakazniku.getValue();
+//        boolean dokoncit = jCheckBox1_dokoncit.isSelected();
+        String ICOString = jTextField_ICO.getText();
+        if (jTextField_ICO.getText().equals("")) {
+            Component frame = null;
+            JOptionPane.showMessageDialog(frame, "Nejdříve vyplň hodnotu IČO");
+        } else {
+            int ICOInt = Integer.parseInt(ICOString);
+            try {
+                GSM_LE_Pridruzeni_bez_BA.proved_GSM_LE_pridruzeni_sBA_skript(prostredi, ICOInt);
+            } catch (SQLException ex) {
+                Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }//GEN-LAST:event_GSM_LE_bez_BAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1300,6 +1339,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DSLMulti_VSE_button;
     private javax.swing.JButton DSLSimple_VSE_button;
+    private javax.swing.JButton GSM_LE_bez_BA;
     private javax.swing.JButton GSM_LE_s_BA;
     private javax.swing.JButton GSM_Postpaid_button;
     private javax.swing.JButton GSM_Postpaid_pridruzeni_button;
@@ -1359,6 +1399,7 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2_tarif;
     private javax.swing.JRadioButton jRadioButton_test1;
     private javax.swing.JRadioButton jRadioButton_test2;
+    private javax.swing.JRadioButton jRadioButton_test3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
