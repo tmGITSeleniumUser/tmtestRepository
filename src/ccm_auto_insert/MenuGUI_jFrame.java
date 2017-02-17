@@ -1200,6 +1200,8 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                 //xDSL_VSE.telLinka(ICOInt, hodnotaButtonu);
             } catch (InterruptedException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }  // TODO add your handling code here:
@@ -1326,6 +1328,8 @@ public class MenuGUI_jFrame extends javax.swing.JFrame {
                 DSL_VSE_reselling.proved_xDSL_VSE_skript(ICOString, prostredi);
 
             } catch (InterruptedException ex) {
+                Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
                 Logger.getLogger(MenuGUI_jFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
 

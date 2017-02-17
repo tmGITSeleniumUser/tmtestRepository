@@ -6,6 +6,7 @@
 package ccm_auto_insert;
 
 import generatorRC.RcGenerator;
+import java.sql.SQLException;
 import java.util.Random;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -21,49 +22,17 @@ import org.openqa.selenium.support.ui.Select;
  */
 public class DSL_VSE_reselling {
 
-    static void proved_xDSL_VSE_skript(String ICO, int testProstredi) throws InterruptedException {
-        //set the system property for Internet Explorer  
-        System.setProperty("webdriver.ie.driver", "C:\\Users\\ondrej.holik\\Desktop\\ATEMP\\IEDriver\\IEDriverServer.exe");
+    static void proved_xDSL_VSE_skript(String ICO, int testProstredi) throws InterruptedException, SQLException {
+       
+        WebDriver driver = Uvodni_obrazovka.otevriProhlizecIE(testProstredi);
 
-//        DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-        DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
-        ieCapabilities.setCapability("nativeEvents", false);
-        ieCapabilities.setCapability("unexpectedAlertBehaviour", "accept");
-        ieCapabilities.setCapability("ignoreProtectedModeSettings", true);
-        ieCapabilities.setCapability("disable-popup-blocking", true);
-        ieCapabilities.setCapability("enablePersistentHover", true);
-        ieCapabilities.setCapability("pageLoadStrategy", "unstable");
-        ieCapabilities.setCapability("ignoreZoomSetting", true);
-        WebDriver driver = new InternetExplorerDriver(ieCapabilities);
-        PomocneFunkce odkazNaCCM = new PomocneFunkce();
-        driver.get(odkazNaCCM.nastavURLTestovacihoProstredi(testProstredi));
         Random rand = new Random();
         int nahodneCislo = rand.nextInt(1000000000);
         Datumy datum = new Datumy();
         String dnesniDatum = datum.vratAktualniDatum();
-        String datumInstalace = datum.vratDatumProInstalaci();
         Thread.sleep(8000);
+        Uvodni_obrazovka.vyplnCUI(testProstredi, driver, false, ICO);
 
-        driver.findElement(By.name("i_ic")).sendKeys(ICO + "" + Keys.INSERT);
-//        driver.findElement(By.name("i_solus")).click();
-        driver.findElement(By.name("i_pr_query")).click();
-        Select droplistSP = new Select(driver.findElement(By.name("i_citizenship")));
-        droplistSP.selectByVisibleText("ČR");
-        Select droplistTS = new Select(driver.findElement(By.name("i_customer_type")));
-        droplistTS.selectByVisibleText("Právnická osoba");
-        driver.findElement(By.name("i_sim_voice")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_fix_voice")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_data")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_fix_data")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_roam")).sendKeys("1" + Keys.INSERT);
-        Select droplistPM = new Select(driver.findElement(By.name("i_payment_type")));
-        droplistPM.selectByVisibleText("Cash");
-        Select droplistDK = new Select(driver.findElement(By.name("i_contr_duration")));
-        droplistDK.selectByVisibleText("24 měsíců");
-        driver.findElement(By.name("i_mmp")).sendKeys("20000" + Keys.INSERT);
-        driver.findElement(By.name("i_zip")).sendKeys("14000" + Keys.INSERT);
-
-        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/form/table/tbody/tr/td[2]/table/tbody/tr[39]/td/input[1]")).click(); //vyhledání
         driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]")).click(); //Aktivace
         driver.findElement(By.linkText("Aktivace DSL - Nový zákazník")).click(); //Aktivace DSL - nový zákazník
         Thread.sleep(4000);

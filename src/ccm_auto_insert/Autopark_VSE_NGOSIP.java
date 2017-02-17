@@ -7,57 +7,24 @@ import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
 
 public class Autopark_VSE_NGOSIP {
 
     static void proved_Autopark_VSE_skript(int testProstredi, boolean Installment) throws SQLException {
 
-        //System.setProperty("webdriver.ie.driver", "C:/Users/oholik/Desktop/Selenium/selenium-java-2.45.0/IEDriverServer.exe");
-        //InternetExplorerDriver IEDriver = new InternetExplorerDriver();
-        ProfilesIni profile = new ProfilesIni();
-        FirefoxProfile myprofile = profile.getProfile("default");
-        FirefoxDriver driver = new FirefoxDriver(myprofile);
+        WebDriver driver = Uvodni_obrazovka.otevriProhlizecFirefox(testProstredi);
         Random rand = new Random();
         int nahodneCislo = rand.nextInt(1000000000);
         Datumy datum = new Datumy();
         String dnesniDatum = datum.vratAktualniDatum();
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        PomocneFunkce odkazNaCCM = new PomocneFunkce();
-        String odkaz = odkazNaCCM.nastavURLTestovacihoProstredi(testProstredi);
-        driver.navigate().to(odkaz);
-        driver.manage().window().maximize();
 
-        //driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(ICO + "" + Keys.INSERT);
-        String ICO = SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi) + "" + Keys.INSERT;
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(ICO);
-
-//driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_pr_query"))).click();
-        Select droplistSP = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_citizenship"))));
-        droplistSP.selectByVisibleText("ČR");
-        Select droplistTS = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_customer_type"))));
-        droplistTS.selectByVisibleText("Právnická osoba");
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_voice"))).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_fix_voice"))).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_data"))).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_fix_data"))).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_roam"))).sendKeys("1" + Keys.INSERT);
-        Select droplistPM = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_payment_type"))));
-        droplistPM.selectByVisibleText("Cash");
-        Select droplistDK = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_contr_duration"))));
-        droplistDK.selectByVisibleText("24 měsíců");
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_mmp"))).sendKeys("20000" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("14000" + Keys.INSERT);
-        if (Installment == true) {
-            driver.findElement(By.name("i_installment")).click();
-        }
-        driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("vyhledej"))).click();
+        String ICO = null;
+        ICO = Uvodni_obrazovka.vyplnCUI(testProstredi, driver, Installment, "0");
 
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click();

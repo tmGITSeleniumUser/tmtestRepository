@@ -6,6 +6,7 @@
 package ccm_auto_insert;
 
 import generatorRC.RcGenerator;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 import static org.junit.Assert.*;
 import java.util.Random;
@@ -27,81 +28,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class DSL_SIMPLE_VSE_SME {
 
-    static void proved_DSL_SIMPLE_VSE_SME_skript(String ICO, int testProstredi) throws InterruptedException {
-                //set the system property for Internet Explorer  
-//        System.setProperty("webdriver.ie.driver", "Location of IE Driver");
-        // System.setProperty("webdriver.ie.driver", "C:\\Users\\nikola\\Desktop\\T-mobile Testing\\IE DRIVER\\IEDriverServer.exe");
-         System.setProperty("webdriver.ie.driver", "C:\\Webdriver\\IEDriverServer.exe");
-   
-
-//        DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
-        DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
-
-        ieCapabilities.setCapability("nativeEvents", false);
-        ieCapabilities.setCapability("unexpectedAlertBehaviour", "accept");
-        ieCapabilities.setCapability("ignoreProtectedModeSettings", true);
-        ieCapabilities.setCapability("disable-popup-blocking", true);
-        ieCapabilities.setCapability("enablePersistentHover", true);
-        ieCapabilities.setCapability("pageLoadStrategy", "unstable");
-        ieCapabilities.setCapability("ignoreZoomSetting", true);
-
-        WebDriver driver = new InternetExplorerDriver(ieCapabilities);
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
-        // WebDriver driver = new InternetExplorerDriver(caps);
-
-//        Maximize browser window 
-        PomocneFunkce odkazNaCCM = new PomocneFunkce();
-        driver.get(odkazNaCCM.nastavURLTestovacihoProstredi(testProstredi));
-        //WebDriverWait wait = new WebDriverWait(driver, 10);
+    static void proved_DSL_SIMPLE_VSE_SME_skript(String ICO, int testProstredi) throws InterruptedException, SQLException {
+        WebDriver driver = Uvodni_obrazovka.otevriProhlizecIE(testProstredi);
         Random rand = new Random();
         int nahodneCislo = rand.nextInt(1000000000);
 
         Datumy datum = new Datumy();
         String dnesniDatum = datum.vratAktualniDatum();
         String datumInstalace = datum.vratDatumProInstalaci();
-        //driver.get("http://sharepoint.cz.tmo/sites/projects/WhitelabelFleet/SitePages/Home.aspx?RootFolder=%2Fsites%2Fprojects%2FWhitelabelFleet%2FBRFS%2FngOSIP&FolderCTID=0x012000D2BEDE17FD13E64F93AFB39D05EDAE1C&View=%7B21B56BD4%2DFDDF%2D40BA%2DB559%2DAF6A5FC3B3CC%7D");
-//        driver.get("http://90.183.26.79:1080/auth/sign/in");
-        //driver.manage().window().maximize();
-        //driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//        driver.findElement(By.id("frm-loginForm-username")).sendKeys("james" + Keys.INSERT);
-//        driver.findElement(By.id("frm-loginForm-password")).sendKeys("bond" + Keys.INSERT);
-//        driver.findElement(By.id("frm-loginForm-send")).click();
-//
-//        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/nav/ul/li[1]/a")).click();     // nová objednávka
-//        driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div/div[3]/a")).click();   // vytvořit novou objednávku
-//        Datumy datum = new Datumy();
-//        String dnesniDatum = datum.vratAktualniDatum();
 
-        Thread.sleep(7000);
+        Thread.sleep(9000);
         WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("i_ic")));
-        driver.findElement(By.name("i_ic")).sendKeys(ICO + "" + Keys.INSERT);
-
-        driver.findElement(By.name("i_solus")).click();
-        driver.findElement(By.name("i_pr_query")).click();
-
-        Select droplistSP = new Select(driver.findElement(By.name("i_citizenship")));
-        droplistSP.selectByVisibleText("ČR");
-
-        Select droplistTS = new Select(driver.findElement(By.name("i_customer_type")));
-        droplistTS.selectByVisibleText("Právnická osoba");
-
-        driver.findElement(By.name("i_sim_voice")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_fix_voice")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_data")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_fix_data")).sendKeys("1" + Keys.INSERT);
-        driver.findElement(By.name("i_sim_roam")).sendKeys("1" + Keys.INSERT);
-
-        Select droplistPM = new Select(driver.findElement(By.name("i_payment_type")));
-        droplistPM.selectByVisibleText("Cash");
-        Select droplistDK = new Select(driver.findElement(By.name("i_contr_duration")));
-        droplistDK.selectByVisibleText("24 měsíců");
-
-        driver.findElement(By.name("i_mmp")).sendKeys("20000" + Keys.INSERT);
-
-        driver.findElement(By.name("i_zip")).sendKeys("48563" + Keys.INSERT);
-
-        driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/form/table/tbody/tr/td[2]/table/tbody/tr[39]/td/input[1]")).click(); //vyhledání
+        Uvodni_obrazovka.vyplnCUI(testProstredi, driver, false, ICO);
         Thread.sleep(3000);
         driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]")).click(); //Aktivace
         // driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[10]/td/a")).click(); //Aktivace DSL - Nový zákazník
@@ -121,7 +60,7 @@ public class DSL_SIMPLE_VSE_SME {
         // driver.findElement(By.name("IDATA_POTS_NUMBER")).sendKeys("0");
 
         driver.findElement(By.id("iregion")).sendKeys("Hlavní město Praha");
-      //  Thread.sleep(3000);
+        //  Thread.sleep(3000);
         // driver.findElement(By.id("3100")).click();
 
         driver.findElement(By.id("icity")).sendKeys("Praha");
@@ -140,7 +79,7 @@ public class DSL_SIMPLE_VSE_SME {
         Thread.sleep(5000);
         driver.findElement(By.id("25120468")).click();
 
-      //  driver.findElement(By.name("icity")).sendKeys("Praha");
+        //  driver.findElement(By.name("icity")).sendKeys("Praha");
         // driver.findElement(By.name("iscity")).sendKeys("Nusle");
         //  driver.findElement(By.name("istreet")).sendKeys("Táborská");
         //  driver.findElement(By.name("ino")).sendKeys("22");
@@ -153,7 +92,7 @@ public class DSL_SIMPLE_VSE_SME {
 //        driver.findElement(By.partialLinkText("335")).click();
 //        driver.findElement(By.id("NEXT")).click();
         driver.findElement(By.id("CHECK")).click();
-       //  Thread.sleep(100000);
+        //  Thread.sleep(100000);
 
         driver.findElement(By.xpath("(//input[@name='ITARIFF'])[4]")).click();
         driver.findElement(By.id("NEXT")).click();
