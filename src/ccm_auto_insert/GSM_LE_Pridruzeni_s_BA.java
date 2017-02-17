@@ -37,8 +37,7 @@ public class GSM_LE_Pridruzeni_s_BA extends JFrame {
 
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
-        driver.findElement(By.name("i_ic")).sendKeys("0" + ICO + "" + Keys.INSERT);
-//            driver.findElement(By.name("i_ic")).sendKeys(ICO + "" + Keys.INSERT);
+        driver.findElement(By.name("i_ic")).sendKeys(ICO + "" + Keys.INSERT);
 //            driver.findElement(By.name("i_solus")).click();
         driver.findElement(By.name("i_pr_query")).click();
         Select droplistSP = new Select(driver.findElement(By.name("i_citizenship")));

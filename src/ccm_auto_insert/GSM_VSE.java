@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GSM_VSE extends JFrame {
 
-    static void proved_GSM_VSE_skript(int testProstredi, int pocetPocetZakazniku, boolean auto_finished, JTextField hotovoZakazniku) throws SQLException {
+    static void proved_GSM_VSE_skript(int testProstredi, int pocetPocetZakazniku, boolean auto_finished, JTextField hotovoZakazniku, boolean ICOZeSouboru) throws SQLException {
 
         // System.setProperty("webdriver.ie.driver", "C:/Users/oholik/Desktop/Selenium/selenium-java-2.45.0/IEDriverServer.exe");
         //  InternetExplorerDriver IEDriver = new InternetExplorerDriver();
@@ -27,17 +27,12 @@ public class GSM_VSE extends JFrame {
 //        
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile myprofile = profile.getProfile("default");
-
         FirefoxDriver driver = new FirefoxDriver(myprofile);
-
-        String rc;
-
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        PomocneFunkce odkazNaCCM = new PomocneFunkce();
-        String odkaz = odkazNaCCM.nastavURLTestovacihoProstredi(testProstredi);
+        PomocneFunkce pomocneFunkce = new PomocneFunkce();
+        String odkaz = pomocneFunkce.nastavURLTestovacihoProstredi(testProstredi);
         driver.navigate().to(odkaz);
         driver.manage().window().maximize();
-
         Datumy datum = new Datumy();
 
         for (int i = 1; i <= pocetPocetZakazniku; i++) {
@@ -45,46 +40,42 @@ public class GSM_VSE extends JFrame {
             int nahodneCislo_Dokument = rand.nextInt(1000000000);
             int nahodneCislo_Email = rand.nextInt(100000);
             int nahodneCislo_TelKontakt = 1000 + rand.nextInt(9000);
+            String ICO = pomocneFunkce.vyplnICO(ICOZeSouboru, testProstredi);
+            String rc;
             System.out.println("Průchod:" + i);
-
             String dnesniDatum = datum.vratAktualniDatum();
+            
+             //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+             //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
 
-            driver.findElement(By.name("i_ic")).sendKeys(SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi) + "" + Keys.INSERT);
-
+            driver.findElement(By.name("i_ic")).sendKeys(ICO + "" + Keys.INSERT);
 //            driver.findElement(By.name("i_solus")).click();
             driver.findElement(By.name("i_pr_query")).click();
-
             Select droplistSP = new Select(driver.findElement(By.name("i_citizenship")));
             droplistSP.selectByVisibleText("ČR");
-
             Select droplistTS = new Select(driver.findElement(By.name("i_customer_type")));
             droplistTS.selectByVisibleText("Právnická osoba");
-
             driver.findElement(By.name("i_sim_voice")).sendKeys("1" + Keys.INSERT);
             driver.findElement(By.name("i_sim_fix_voice")).sendKeys("1" + Keys.INSERT);
             driver.findElement(By.name("i_sim_data")).sendKeys("1" + Keys.INSERT);
             driver.findElement(By.name("i_sim_fix_data")).sendKeys("1" + Keys.INSERT);
             driver.findElement(By.name("i_sim_roam")).sendKeys("1" + Keys.INSERT);
-
             Select droplistPM = new Select(driver.findElement(By.name("i_payment_type")));
             droplistPM.selectByVisibleText("Cash");
             Select droplistDK = new Select(driver.findElement(By.name("i_contr_duration")));
             droplistDK.selectByVisibleText("24 měsíců");
-
             driver.findElement(By.name("i_mmp")).sendKeys("20000" + Keys.INSERT);
-
-            driver.findElement(By.name("i_zip")).sendKeys("12800" + Keys.INSERT);
-
+            driver.findElement(By.name("i_zip")).sendKeys("14000" + Keys.INSERT);
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/form/table/tbody/tr/td[2]/table/tbody/tr[39]/td/input[1]")).click(); //vyhledání
+            
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
 
             WebElement button_activation = (new WebDriverWait(driver, 10)) /*čekání na prvek*/
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table[3]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]")));
-
             driver.findElement(By.xpath("/html/body/table[3]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]")).click(); // aktivace
-
             WebElement button_new_customer = (new WebDriverWait(driver, 10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[3]/td/a")));
-
             driver.findElement(By.xpath("/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[3]/td/a")).click();  // aktivace nového zákazníka
 
             if (PomocneFunkce.existsElement(driver, "/html/body/center/form/input[6]")) {
@@ -93,6 +84,8 @@ public class GSM_VSE extends JFrame {
                 driver.findElement(By.xpath("/html/body/center/form/input[6]")).click(); // Vyber ze Sieblu a zruseni hlasky
 
             }
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------   
 
             WebElement button_town = (new WebDriverWait(driver, 10))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("ADR_CNR_TOWN_FV")));
@@ -174,6 +167,10 @@ public class GSM_VSE extends JFrame {
             OutputInputFile.writeMSISDN(driver.findElement(By.id("SUB_MSISDN_FV_RO")).getAttribute("value"), SQL_selects.IMSIDdatabase(dbConnection.dbConnection_qap(testProstredi), testProstredi, driver.findElement(By.id("SUB_ICCID_FV")).getAttribute("value")));
 
             driver.findElement(By.id("but6")).click();
+
+            if (ICOZeSouboru == true) {
+                OutputInputFile.writeResultOffCheckICO(ICO, "ICO", "IČO je použito");
+            }
 
             PomocneFunkce.BackToHome(driver);
 

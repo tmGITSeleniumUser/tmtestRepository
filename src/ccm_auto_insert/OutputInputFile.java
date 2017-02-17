@@ -1,4 +1,3 @@
-
 package ccm_auto_insert;
 
 import java.io.BufferedReader;
@@ -7,7 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class OutputInputFile {
 
@@ -33,194 +31,315 @@ public class OutputInputFile {
 //                           System.out.println("Zapsáno do checked_msisdns_" + backend + ".txt: " + MSISDNtoCheck);
 ////
 //            }
-                
-                // Zapise MSISDN do souboru msisdns.txt v lokaci aplikace - nezapise cislo s delkou ruznou od 9
-                public static void writeMSISDN(String MSISDN, String IMSI){
-                               MSISDN = MSISDN.trim();
-                               IMSI = IMSI.trim();
-                               
-                               if(MSISDN.length() != 9){
+    // Zapise MSISDN do souboru msisdns.txt v lokaci aplikace - nezapise cislo s delkou ruznou od 9
+    public static void writeMSISDN(String MSISDN, String IMSI) {
+        MSISDN = MSISDN.trim();
+        IMSI = IMSI.trim();
 
-                               }
-                               
-                               else{
-                               
-                               try {
+        if (MSISDN.length() != 9) {
 
-                                               File outputFile = new File("msisdns.txt");
-                                               
-                                               FileWriter fw = new FileWriter(outputFile.getAbsoluteFile(),true);
-                                               BufferedWriter bw = new BufferedWriter(fw);
-                                               
-                                               if(!outputFile.exists()){
-                                                               outputFile.createNewFile();
-                                               }
-                                               
-                                               bw.write(MSISDN + ";" + IMSI);
-                                               bw.newLine();
+        } else {
 
-                                               bw.close();
+            try {
 
-                               } catch (IOException e) {
-                                               e.printStackTrace();
-                               }
-                               
-                  }
+                File outputFile = new File("msisdns.txt");
+
+                FileWriter fw = new FileWriter(outputFile.getAbsoluteFile(), true);
+                BufferedWriter bw = new BufferedWriter(fw);
+
+                if (!outputFile.exists()) {
+                    outputFile.createNewFile();
                 }
-                // Zapise MSISDN do souboru msisdns.txt v lokaci aplikace - nezapise cislo s delkou ruznou od 9
-                public static void writeMSISDNVoipNG(String MSISDN, String ExtIDCU){
-                               MSISDN = MSISDN.trim();
-                               ExtIDCU = ExtIDCU.trim();
-                               
-                               if(MSISDN.length() != 9){
 
-                               }
-                               
-                               else{
-                               
-                               try {
+                bw.write(MSISDN + ";" + IMSI);
+                bw.newLine();
 
-                                               File outputFile = new File("msisdnsvoipng.txt");
-                                               
-                                               FileWriter fw = new FileWriter(outputFile.getAbsoluteFile(),true);
-                                               BufferedWriter bw = new BufferedWriter(fw);
-                                               
-                                               if(!outputFile.exists()){
-                                                               outputFile.createNewFile();
-                                               }
-                                               
-                                               bw.write(MSISDN + ";" + ExtIDCU);
-                                               bw.newLine();
+                bw.close();
 
-                                               bw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-                               } catch (IOException e) {
-                                               e.printStackTrace();
-                               }
-                               
-                  }
-                }                
-                
-                // Vraci MSISDN ze souboru nove vytvorenych msisdns, ktere jeste nebylo kontrolovano v odpovidajicim backendu
-                public static String getMSISDN(String backendSystem){
-                               String MSISDN = null;
-                               String line = null;
-                               String lineInOutputFile = null;
-                               String[] lineInOutputField = null;
-                               String[] lineField = null;
-                               
-                               File inputFile = new File("msisdns.txt");
-                               File outputFileChecked = new File("checked_msisdns_" + backendSystem + ".txt");
-                               
-                               
-                               BufferedReader br = null;
-                               BufferedReader br2 = null;
-                               BufferedWriter bw = null;
+        }
+    }
+    // Zapise MSISDN do souboru msisdns.txt v lokaci aplikace - nezapise cislo s delkou ruznou od 9
 
-                               try {
+    public static void writeMSISDNVoipNG(String MSISDN, String ExtIDCU) {
+        MSISDN = MSISDN.trim();
+        ExtIDCU = ExtIDCU.trim();
 
-                                               br = new BufferedReader(new FileReader(inputFile));
-                                               boolean msisdnCheckedAlready = false;
-                                               
-                                               if(!outputFileChecked.exists()){
-                                                               outputFileChecked.createNewFile();
-                                               }
-                                               
-                               while ((line = br.readLine()) != null) {
-                                                               msisdnCheckedAlready = false;
-                                                               
-                                                               //Je treba vzdy pri kontrole MSISDN zacit od zacatku souboru - proto je treba vzdy nove nainicializovat
-                                                               br2 = new BufferedReader(new FileReader(outputFileChecked));
-                                               
+        if (MSISDN.length() != 9) {
+
+        } else {
+
+            try {
+
+                File outputFile = new File("msisdnsvoipng.txt");
+
+                FileWriter fw = new FileWriter(outputFile.getAbsoluteFile(), true);
+                BufferedWriter bw = new BufferedWriter(fw);
+
+                if (!outputFile.exists()) {
+                    outputFile.createNewFile();
+                }
+
+                bw.write(MSISDN + ";" + ExtIDCU);
+                bw.newLine();
+
+                bw.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+
+    // Vraci MSISDN ze souboru nove vytvorenych msisdns, ktere jeste nebylo kontrolovano v odpovidajicim backendu
+    public static String getMSISDN(String backendSystem) {
+        String MSISDN = null;
+        String line = null;
+        String lineInOutputFile = null;
+        String[] lineInOutputField = null;
+        String[] lineField = null;
+
+        File inputFile = new File("msisdns.txt");
+        File outputFileChecked = new File("checked_msisdns_" + backendSystem + ".txt");
+
+        BufferedReader br = null;
+        BufferedReader br2 = null;
+        BufferedWriter bw = null;
+
+        try {
+
+            br = new BufferedReader(new FileReader(inputFile));
+            boolean msisdnCheckedAlready = false;
+
+            if (!outputFileChecked.exists()) {
+                outputFileChecked.createNewFile();
+            }
+
+            while ((line = br.readLine()) != null) {
+                msisdnCheckedAlready = false;
+
+                //Je treba vzdy pri kontrole MSISDN zacit od zacatku souboru - proto je treba vzdy nove nainicializovat
+                br2 = new BufferedReader(new FileReader(outputFileChecked));
+
 //                                           1) Pokud nenacteme nic ze vstupniho souboru, tak se vrati MSISDN = null
 //                                           2) Pokud nacteme neco, pak porovname s vystupnim souborem:
 //                                                           a) Pokud jiz ve vystupnim souboru cislo je, pak preskakujeme na dalsi radku ve vstupnim souboru
 //                                                           b) Pokud jeste neni ve vystupnim souboru, pak ho nacetem a zapiseme do vystupniho souboru
-                                               
-                                               while ((lineInOutputFile = br2.readLine()) != null){
-                                               
+                while ((lineInOutputFile = br2.readLine()) != null) {
+
 //                                                                                          System.out.println(line.trim() + " - " + lineInOutputFile.substring(0, 9).trim());
-                                                                                              
-                                                                                              lineInOutputField = lineInOutputFile.split(";");
-                                                                                              lineField = line.split(";");
-                                                                                              
-                                                                                              if(lineInOutputField[0].equals(lineField[0])){
+                    lineInOutputField = lineInOutputFile.split(";");
+                    lineField = line.split(";");
 
-                                                                                                              msisdnCheckedAlready = true;
-                                                                                                              break;
-                                                                                              }
+                    if (lineInOutputField[0].equals(lineField[0])) {
 
-                                               }
-                                               
-                                               if (msisdnCheckedAlready == false) {
+                        msisdnCheckedAlready = true;
+                        break;
+                    }
 
-                                                               lineField = line.split(";");
+                }
+
+                if (msisdnCheckedAlready == false) {
+
+                    lineField = line.split(";");
 //                                                           MSISDN neni obsazeno ve vystupnim souboru jiz zkontrolovanych cisel, a tak ho vratime - je tedy k dispozici pro check v backendech                                                    
-                                                               MSISDN = lineField[0];
-                                                               
-                                                               break;
-                                               }
-                                                               
-                               }
-                                               
-                               } catch (IOException e) {
-                                               e.printStackTrace();
-                               } finally {
-                                               try {
-                                                               if (br != null)br.close();
-                                                               if (br2 != null)br2.close();
-                                                               if (bw != null)bw.close(); 
-                                               } catch (IOException ex) {
-                                                               ex.printStackTrace();
-                                               }
-                               }
-                               
-                               // Pokud se vrati null, pak pravdepodobne jiz vsechna cisla z msisdns byla zkontrolovana a jsou obsazena ve vystupni souboru pro dany backend
-                               return MSISDN;
+                    MSISDN = lineField[0];
+
+                    break;
                 }
-                
-                // Zapise zkontrolovane cislo + vysledek kontroly do souboru pro dany backend - nezapise cislo s delkou ruznou od 9
-                public static void writeResultOffCheck(String MSISDN, String backendSystem, String resultOfValidation){
-                               
-                               MSISDN = MSISDN.trim();
-                               backendSystem = backendSystem.trim();
-                               resultOfValidation = resultOfValidation.trim();
-                               
-                               if (MSISDN.length() != 9) {
-                                               System.out.println("Pokus o vlozeni kratsiho nebo delsiho cisla nez je 9 znaku");
-                               }
-                               
-                               else{
-                                               
-                               File outputFileChecked = new File("checked_msisdns_" + backendSystem + ".txt");
-                               
-                               BufferedWriter bw = null;
-                               
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (br2 != null) {
+                    br2.close();
+                }
+                if (bw != null) {
+                    bw.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        // Pokud se vrati null, pak pravdepodobne jiz vsechna cisla z msisdns byla zkontrolovana a jsou obsazena ve vystupni souboru pro dany backend
+        return MSISDN;
+    }
+
+    // Vraci ICO ze souboru. Dalsi logika pak zajistuje to, ze na konci objednavky se toto ICO zapise do noveho souboru jiz pouzitych ICO. Tento skript pak porovna oba soubory, 
+    // pokud existuje ICO ve vystupnim souboru tak ho operace getICO nepouzije a automaticky skoci na dalsi ICO, ktere opet porovna.
+    public static String getICO(String backendSystem) {
+        String ICO = null;
+        String line = null;
+        String lineInOutputFile = null;
+        String[] lineInOutputField = null;
+        String[] lineField = null;
+
+        File inputFile = new File("ICO.txt");
+        File outputFileChecked = new File("checked_" + backendSystem + ".txt");
+
+        BufferedReader br = null;
+        BufferedReader br2 = null;
+        BufferedWriter bw = null;
+
+        try {
+
+            br = new BufferedReader(new FileReader(inputFile));
+            boolean ICOCheckedAlready = false;
+
+            if (!outputFileChecked.exists()) {
+                outputFileChecked.createNewFile();
+            }
+
+            while ((line = br.readLine()) != null) {
+                ICOCheckedAlready = false;
+
+                //Je treba vzdy pri kontrole ICO zacit od zacatku souboru - proto je treba vzdy nove nainicializovat
+                br2 = new BufferedReader(new FileReader(outputFileChecked));
+
+//                                           1) Pokud nenacteme nic ze vstupniho souboru, tak se vrati ICO = null
+//                                           2) Pokud nacteme neco, pak porovname s vystupnim souborem:
+//                                                           a) Pokud jiz ve vystupnim souboru cislo je, pak preskakujeme na dalsi radku ve vstupnim souboru
+//                                                           b) Pokud jeste neni ve vystupnim souboru, pak ho nacetem a zapiseme do vystupniho souboru
+                while ((lineInOutputFile = br2.readLine()) != null) {
+
+//                                                                                          System.out.println(line.trim() + " - " + lineInOutputFile.substring(0, 9).trim());
+                    lineInOutputField = lineInOutputFile.split(";");
+                    lineField = line.split(";");
+
+                    if (lineInOutputField[0].equals(lineField[0])) {
+
+                        ICOCheckedAlready = true;
+                        break;
+                    }
+
+                }
+
+                if (ICOCheckedAlready == false) {
+
+                    lineField = line.split(";");
+//                                                           ICO neni obsazeno ve vystupnim souboru jiz zkontrolovanych ICO, muzeme ho tedy pouzit                                                   
+                    ICO = lineField[0];
+
+                    break;
+                }
+
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (br2 != null) {
+                    br2.close();
+                }
+                if (bw != null) {
+                    bw.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+
+        // Pokud se vrati null, pak pravdepodobne jiz vsechna ICO byla vypotrebovana
+        return ICO;
+    }
+
+    // Zapise zkontrolovane cislo + vysledek kontroly do souboru pro dany backend - nezapise cislo s delkou ruznou od 9
+    public static void writeResultOffCheck(String MSISDN, String backendSystem, String resultOfValidation) {
+
+        MSISDN = MSISDN.trim();
+        backendSystem = backendSystem.trim();
+        resultOfValidation = resultOfValidation.trim();
+
+        if (MSISDN.length() != 9) {
+            System.out.println("Pokus o vlozeni kratsiho nebo delsiho cisla nez je 9 znaku");
+        } else {
+
+            File outputFileChecked = new File("checked_msisdns_" + backendSystem + ".txt");
+
+            BufferedWriter bw = null;
+
 //                           Vytvarime pro zapis jiz zkontrolovanych cisel
-                               try {
-                                               
-                                               bw = new BufferedWriter(new FileWriter(outputFileChecked.getAbsoluteFile(),true));
-                               
-                               if(!outputFileChecked.exists()){
-                                               outputFileChecked.createNewFile();
-                               }
-                               
-                                               bw.newLine();
-                                               bw.append(MSISDN + ";" + resultOfValidation);
-                               
-                               
-                               } catch (IOException e) {
-                                               // TODO Auto-generated catch block
-                                               e.printStackTrace();
-                               } finally {
-                                               try {
-                                                               if (bw != null)bw.close();
-                                               } catch (IOException ex) {
-                                                               ex.printStackTrace();
-                                               }
-                               }
-                               }
+            try {
+
+                bw = new BufferedWriter(new FileWriter(outputFileChecked.getAbsoluteFile(), true));
+
+                if (!outputFileChecked.exists()) {
+                    outputFileChecked.createNewFile();
                 }
+
+                bw.newLine();
+                bw.append(MSISDN + ";" + resultOfValidation);
+
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (bw != null) {
+                        bw.close();
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
+
+    // Zapise pouzite ICO do souboru - nezapise cislo s delkou ruznou od 8
+    public static void writeResultOffCheckICO(String ICO, String backendSystem, String resultOfValidation) {
+
+        ICO = ICO.trim();
+        backendSystem = backendSystem.trim();
+        resultOfValidation = resultOfValidation.trim();
+
+        if (ICO.length() != 8) {
+            System.out.println("Pokus o vlozeni kratsiho nebo delsiho cisla nez je 8 znaku");
+        } else {
+
+            File outputFileChecked = new File("checked_" + backendSystem + ".txt");
+
+            BufferedWriter bw = null;
+
+//                           Vytvarime pro zapis jiz dokoncenych ICO
+            try {
+
+                bw = new BufferedWriter(new FileWriter(outputFileChecked.getAbsoluteFile(), true));
+
+                if (!outputFileChecked.exists()) {
+                    outputFileChecked.createNewFile();
+                }
+
+                bw.newLine();
+                bw.append(ICO + ";" + resultOfValidation);
+
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } finally {
+                try {
+                    if (bw != null) {
+                        bw.close();
+                    }
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
+    }
 
 }
-

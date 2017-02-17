@@ -5,9 +5,9 @@
  */
 package ccm_auto_insert;
 
+import java.sql.SQLException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -59,4 +59,16 @@ public class PomocneFunkce {
         return true;
     }
 
+    public String vyplnICO(boolean ICOzeSouboru, int testProstredi) throws SQLException {
+        String ICO;
+        if (ICOzeSouboru == true) {
+            ICO = OutputInputFile.getICO("ICO");
+            return ICO;
+
+        } else {
+            ICO = SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi);
+            return ICO;
+        }
+
+    }
 }

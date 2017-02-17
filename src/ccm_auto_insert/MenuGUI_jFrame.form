@@ -78,46 +78,41 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="pocetZakazniku" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <EmptySpace pref="64" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jRadioButton_test1" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton_test2" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextField3_pocetZakazniku" min="-2" pref="61" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jButton_CCM_dokonceni_zadosti" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jButton4_CLF_check" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jButton5_ODS_check" min="-2" pref="235" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox1_splatkac" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel11" min="-2" pref="92" max="-2" attributes="0"/>
-                                          <Component id="jButton_CCM_dokonceni_zadosti" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
-                                          <Component id="jButton4_CLF_check" min="-2" pref="235" max="-2" attributes="0"/>
-                                          <Component id="jButton5_ODS_check" min="-2" pref="235" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="pocetZakazniku" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                                  <Component id="jTextField3_pocetZakazniku" alignment="0" min="-2" pref="61" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="jLabel11" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                                           <Component id="jLabel12" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
-                                          <Component id="jCheckBox1_splatkac" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox1_dokoncit" alignment="0" min="-2" pref="235" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jCheckBox1_dokoncit" min="-2" pref="235" max="-2" attributes="0"/>
-                                      <EmptySpace pref="30" max="32767" attributes="0"/>
-                                      <Component id="jRadioButton_test3" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                              <Component id="jRadioButton_test1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioButton_test2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jRadioButton_test3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jCheckBox1_ICOzeSouboru" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -184,25 +179,33 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="pocetZakazniku" alignment="3" max="32767" attributes="0"/>
-                                          <Component id="jRadioButton_test1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel11" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                                                  <Component id="pocetZakazniku" alignment="3" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jLabel12" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                                  <Component id="jTextField3_pocetZakazniku" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButton_test2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="jCheckBox1_dokoncit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButton_test3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jRadioButton_test1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel12" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                          <Component id="jTextField3_pocetZakazniku" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton_test2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jCheckBox1_dokoncit" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton_test3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jCheckBox1_splatkac" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jCheckBox1_ICOzeSouboru" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="jButton_CCM_dokonceni_zadosti" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel10" alignment="3" max="32767" attributes="0"/>
@@ -240,7 +243,7 @@
                               <Component id="GSM_Postpaid_button" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel4" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -516,28 +519,29 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="VSE_voip" max="32767" attributes="0"/>
-                              <Component id="DSLMulti_VSE_button" alignment="1" max="32767" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jButton_Tel_linka_VSE_NGOSIP" max="32767" attributes="0"/>
-                                      <Component id="jButton_VSE_Autopark" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="GSM_VSE_button" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButton_Tel_linka_VSE" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="DSL_reselling_VSE_button" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="VSE_voip" max="32767" attributes="0"/>
+                                      <Component id="DSLMulti_VSE_button" alignment="1" max="32767" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jButton_Tel_linka_VSE_NGOSIP" max="32767" attributes="0"/>
+                                              <Component id="jButton_VSE_Autopark" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="GSM_VSE_button" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jButton_Tel_linka_VSE" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel3" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="telefonni_linka_vse_ngosip_asc" alignment="1" pref="0" max="32767" attributes="0"/>
+                                      <Component id="DSLSimple_VSE_button" max="32767" attributes="0"/>
+                                      <Component id="jButton_GSM_VSE_Shop" max="32767" attributes="0"/>
+                                      <Component id="jButtonTCloud" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="192" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="telefonni_linka_vse_ngosip_asc" alignment="1" pref="0" max="32767" attributes="0"/>
-                              <Component id="DSLSimple_VSE_button" max="32767" attributes="0"/>
-                              <Component id="jButton_GSM_VSE_Shop" max="32767" attributes="0"/>
-                              <Component id="jButtonTCloud" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="DSL_reselling_VSE_button" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -870,6 +874,11 @@
                 <Property name="text" type="java.lang.String" value="P&#x159;edseda Lessany - CUID"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox1_ICOzeSouboru">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ICO ze souboru(plat&#xed; pro GSM VSE)"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel4">
@@ -937,7 +946,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="399" max="32767" attributes="0"/>
+                      <EmptySpace pref="415" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1048,7 +1057,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonRWE_PridruzeniSU" min="-2" pref="40" max="-2" attributes="0"/>
-                      <EmptySpace pref="415" max="32767" attributes="0"/>
+                      <EmptySpace pref="422" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

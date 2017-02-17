@@ -62,7 +62,7 @@ public class Autopark_VSE_NGOSIP {
 
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_mmp"))).sendKeys("20000" + Keys.INSERT);
 
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("48563" + Keys.INSERT);
+        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("14000" + Keys.INSERT);
 
         if (Installment == true) {
             driver.findElement(By.name("i_installment")).click();
@@ -86,7 +86,7 @@ public class Autopark_VSE_NGOSIP {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_STREET_FV"))).sendKeys("Hlavní" + Keys.INSERT);            // Ulice              
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_NUMBER_RED_FV"))).sendKeys("48" + Keys.INSERT);            // číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // město
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_ZIP_FV"))).sendKeys("47850" + Keys.INSERT);                // PSČ
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                // PSČ
 
         // záložka ZO kontakt
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("but2"))).click();
@@ -113,7 +113,7 @@ public class Autopark_VSE_NGOSIP {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_STREET_FV"))).sendKeys("Hlavní" + Keys.INSERT);              // Ulice    
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_NUMBER_RED_FV"))).sendKeys("12" + Keys.INSERT);              // Číslo popisné    
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);                 // Město    
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_ZIP_FV"))).sendKeys("48963" + Keys.INSERT);                  // PSČ    
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                  // PSČ    
 
         Select droplistOS = new Select(driver.findElement(By.id("ADR_BIL_QCUSSAL_ID_FV")));
         droplistOS.selectByVisibleText("Vážený zákazníku");
@@ -126,7 +126,7 @@ public class Autopark_VSE_NGOSIP {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_DEL_STREET_FV"))).sendKeys("Pražská" + Keys.INSERT);              //  ulice  
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_DEL_NUMBER_RED_FV"))).sendKeys("12" + Keys.INSERT);              // email  
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_DEL_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);                 // Město    
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_DEL_ZIP_FV"))).sendKeys("10000" + Keys.INSERT);                  // PSČ   
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_DEL_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                  // PSČ   
 
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_SIGNATURE_DATE_FV"))).sendKeys(dnesniDatum + "" + Keys.INSERT);   //datum podpisu objednávky
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_OSIP_FV"))).click();  //NGOSIP checkbox
