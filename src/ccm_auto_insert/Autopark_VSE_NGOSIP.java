@@ -23,13 +23,10 @@ public class Autopark_VSE_NGOSIP {
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile myprofile = profile.getProfile("default");
         FirefoxDriver driver = new FirefoxDriver(myprofile);
-
         Random rand = new Random();
         int nahodneCislo = rand.nextInt(1000000000);
-
         Datumy datum = new Datumy();
         String dnesniDatum = datum.vratAktualniDatum();
-
         WebDriverWait wait = new WebDriverWait(driver, 10);
         PomocneFunkce odkazNaCCM = new PomocneFunkce();
         String odkaz = odkazNaCCM.nastavURLTestovacihoProstredi(testProstredi);
@@ -37,52 +34,40 @@ public class Autopark_VSE_NGOSIP {
         driver.manage().window().maximize();
 
         //driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(ICO + "" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi) + "" + Keys.INSERT);
-        // driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys("192168100");
-      
-        //driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_pr_query"))).click();
+        String ICO = SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi) + "" + Keys.INSERT;
+        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(ICO);
 
+//driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
+        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_pr_query"))).click();
         Select droplistSP = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_citizenship"))));
         droplistSP.selectByVisibleText("ČR");
-
         Select droplistTS = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_customer_type"))));
         droplistTS.selectByVisibleText("Právnická osoba");
-
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_voice"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_fix_voice"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_data"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_fix_data"))).sendKeys("1" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_sim_roam"))).sendKeys("1" + Keys.INSERT);
-
         Select droplistPM = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_payment_type"))));
         droplistPM.selectByVisibleText("Cash");
         Select droplistDK = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_contr_duration"))));
         droplistDK.selectByVisibleText("24 měsíců");
-
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_mmp"))).sendKeys("20000" + Keys.INSERT);
-
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("14000" + Keys.INSERT);
-
         if (Installment == true) {
             driver.findElement(By.name("i_installment")).click();
         }
-
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("vyhledej"))).click();
 
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click();
-
         WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_autopark_asc"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_autopark_asc"))).click();
-
         WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id("CON_P_COMP_LAST_NAME_FV")));
-
+        //zalozka Zakaznik
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("REQ_SELLER_CODE_FV"))).sendKeys("ASC00.001.001" + Keys.INSERT);   // outlet
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("REQ_PIN_FV"))).sendKeys("5050" + Keys.INSERT);   // PIN zaměstnance 
-
-        // záložka Zákazník
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_P_COMP_LAST_NAME_FV"))).sendKeys("Autopark_HPSM_Ondra" + Keys.INSERT);  // obchodní název
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("REQ_PIN_FV"))).sendKeys("5050" + Keys.INSERT);   // PIN zaměstnance         // záložka Zákazník
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_P_COMP_LAST_NAME_FV"))).sendKeys("Autopark_HPSM_" + ICO + Keys.INSERT);  // obchodní název
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_STREET_FV"))).sendKeys("Hlavní" + Keys.INSERT);            // Ulice              
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_NUMBER_RED_FV"))).sendKeys("48" + Keys.INSERT);            // číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // město
@@ -98,7 +83,7 @@ public class Autopark_VSE_NGOSIP {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_STREET_FV"))).sendKeys("Pražská" + Keys.INSERT);           // Ulice         
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_NUMBER_RED_FV"))).sendKeys("156" + Keys.INSERT);           // Číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // Město
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_ZIP_FV"))).sendKeys("48520" + Keys.INSERT);                // PSČ
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                // PSČ
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_EMAIL_FV"))).sendKeys("test@test.cz" + Keys.INSERT);         // Email
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_MSISDN1_FV"))).sendKeys("789456321" + Keys.INSERT);         // Email
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_DOC1_NUMBER_FV"))).sendKeys(nahodneCislo + "" + Keys.INSERT);            // Číslo dokumentu
