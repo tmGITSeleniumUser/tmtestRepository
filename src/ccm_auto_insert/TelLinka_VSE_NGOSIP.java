@@ -40,7 +40,7 @@ public class TelLinka_VSE_NGOSIP {
 
         //driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(ICO + "" + Keys.INSERT);
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("ico"))).sendKeys(SQL_selects.ICOdatabase(dbConnection.dbConnection_dwh(testProstredi), testProstredi) + "" + Keys.INSERT);
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
+//        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_solus"))).click();
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_pr_query"))).click();
 
         Select droplistSP = new Select(driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_citizenship"))));
@@ -69,8 +69,8 @@ public class TelLinka_VSE_NGOSIP {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click();
 
-        WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))));
-        driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))).click();
+        WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))));
+        driver.findElement(By.partialLinkText(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))).click();
 
         WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id(HTML_identifier_library.id_aktivace_cui("CON_P_COMP_LAST_NAME_FV"))));
 
@@ -132,7 +132,7 @@ public class TelLinka_VSE_NGOSIP {
         Select droplistInstalce = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_INSTALL_FV"))));
         droplistInstalce.selectByVisibleText("Instalace");
 
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_OSIP_FV"))).click();  //NGOSIP checkbox
+//        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SER_OSIP_FV"))).click();  //NGOSIP checkbox
 
         Select droplistPlneni = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("SUB_MIN_COMMITMENT_CODE_FV")))); // Minimalni plneni
         droplistPlneni.selectByVisibleText("CCM - MMP 250");

@@ -69,8 +69,8 @@ public class TelLinka_VSE_NGOSIP_ASC {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click();
 
-        WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_pro_obchodniky_novy_zakaznik"))));
-        driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_pro_obchodniky_novy_zakaznik"))).click();
+        WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_pro_obchodniky_novy_zakaznik"))));
+        driver.findElement(By.partialLinkText(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_pro_obchodniky_novy_zakaznik"))).click();
 
         WebElement element3 = wait.until(ExpectedConditions.elementToBeClickable(By.id(HTML_identifier_library.id_aktivace_cui("CON_P_COMP_LAST_NAME_FV"))));
 

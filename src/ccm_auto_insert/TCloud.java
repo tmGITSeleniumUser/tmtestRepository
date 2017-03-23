@@ -60,7 +60,7 @@ public class TCloud {
 
         driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_mmp"))).sendKeys("20000" + Keys.INSERT);
 
-        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("48563" + Keys.INSERT);
+        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_zip"))).sendKeys("14000" + Keys.INSERT);
 
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("vyhledej"))).click();
 
@@ -82,7 +82,7 @@ public class TCloud {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_STREET_FV"))).sendKeys("Hlavní" + Keys.INSERT);            // Ulice              
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_NUMBER_RED_FV"))).sendKeys("48" + Keys.INSERT);            // číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // město
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_ZIP_FV"))).sendKeys("47850" + Keys.INSERT);                // PSČ
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                // PSČ
 
         // záložka ZO kontakt
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("but2"))).click();
@@ -94,7 +94,7 @@ public class TCloud {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_STREET_FV"))).sendKeys("Pražská" + Keys.INSERT);           // Ulice         
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_NUMBER_RED_FV"))).sendKeys("156" + Keys.INSERT);           // Číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // Město
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_ZIP_FV"))).sendKeys("48520" + Keys.INSERT);                // PSČ
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                // PSČ
         //driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_EMAIL_FV"))).sendKeys("test@test.cz" + Keys.INSERT);         // Email
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_DOC1_NUMBER_FV"))).sendKeys(nahodneCislo + "" + Keys.INSERT);            // Číslo dokumentu
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_VALID_DOC1_FV"))).sendKeys("1220" + Keys.INSERT);            // Platnost dokumentu
@@ -108,7 +108,7 @@ public class TCloud {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_STREET_FV"))).sendKeys("Hlavní" + Keys.INSERT);              // Ulice    
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_NUMBER_RED_FV"))).sendKeys("12" + Keys.INSERT);              // Číslo popisné    
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);                 // Město    
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_ZIP_FV"))).sendKeys("48963" + Keys.INSERT);                  // PSČ    
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                  // PSČ    
 
         Select droplistOS = new Select(driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_BIL_QCUSSAL_ID_FV"))));
         droplistOS.selectByVisibleText("Vážený zákazníku");

@@ -53,8 +53,8 @@ public class HTML_identifier_library {
         /*Lessana end*/
         String vyhledej = "/html/body/table[2]/tbody/tr/td/form/table/tbody/tr/td[2]/table/tbody/tr[39]/td/input[1]";
         String aktivace = "/html/body/table[3]/tbody/tr[2]/td/table/tbody/tr[2]/td/a[2]";
-        String aktivace_telefonni_linky_novy_zakaznik = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[18]/td/a";
-        String aktivace_telefonni_linky_pro_obchodniky_novy_zakaznik = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[19]/td/a"; // Dodelat
+        String aktivace_telefonni_linky_novy_zakaznik = "Aktivace telefonní linky - Nový zákazník";
+        String aktivace_telefonni_linky_pro_obchodniky_novy_zakaznik = "Aktivace telefonní linky pro Obchodníky - Nový zákazník"; // Dodelat
         String aktivace_novy_zakaznik_gsm = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[3]/td/a";
         String aktivace_nova_faktura_gsm = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[3]/td/a";
         String fix = "/html/body/table[2]/tbody/tr/td/center/table/tbody/tr[14]/td/a";

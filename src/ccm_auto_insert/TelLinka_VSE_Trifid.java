@@ -93,8 +93,8 @@ public class TelLinka_VSE_Trifid {
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))));
         driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace"))).click();
 
-        WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))));
-        driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))).click();
+        WebElement element2 = wait.until(ExpectedConditions.elementToBeClickable(By.partialLinkText(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))));
+        driver.findElement(By.partialLinkText(HTML_identifier_library.id_aktivace_cui("aktivace_telefonni_linky_novy_zakaznik"))).click();
         
 //        WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.name(HTML_identifier_library.id_aktivace_cui("i_val"))));
 //        driver.findElement(By.name(HTML_identifier_library.id_aktivace_cui("i_val"))).click();        
@@ -107,7 +107,7 @@ public class TelLinka_VSE_Trifid {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_STREET_FV"))).sendKeys("Hlavní" + Keys.INSERT);            // Ulice              
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_NUMBER_RED_FV"))).sendKeys("48" + Keys.INSERT);            // číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // město
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_ZIP_FV"))).sendKeys("47850" + Keys.INSERT);                // PSČ
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNR_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                // PSČ
 
         // záložka ZO kontakt
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("but2"))).click();
@@ -119,7 +119,7 @@ public class TelLinka_VSE_Trifid {
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_STREET_FV"))).sendKeys("Pražská" + Keys.INSERT);           // Ulice         
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_NUMBER_RED_FV"))).sendKeys("156" + Keys.INSERT);           // Číslo popisné
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_TOWN_FV"))).sendKeys("Praha" + Keys.INSERT);               // Město
-        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_ZIP_FV"))).sendKeys("48520" + Keys.INSERT);                // PSČ
+        driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("ADR_CNT_ZIP_FV"))).sendKeys("14000" + Keys.INSERT);                // PSČ
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_EMAIL_FV"))).sendKeys("test@test.cz" + Keys.INSERT);         // Email
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_DOC1_NUMBER_FV"))).sendKeys(nahodneCislo + "" + Keys.INSERT);            // Číslo dokumentu
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("CON_I_VALID_DOC1_FV"))).sendKeys("1220" + Keys.INSERT);            // Platnost dokumentu
@@ -161,7 +161,7 @@ public class TelLinka_VSE_Trifid {
 //        
 //        WebElement element4 = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(HTML_identifier_library.id_aktivace_cui("id_kart")))); // ceka na zobrazeni karet
 //        driver.findElement(By.xpath(HTML_identifier_library.id_aktivace_cui("id_kart"))).click();
-        Thread.sleep(7000);
+        Thread.sleep(5000);
         
         driver.findElement(By.id(HTML_identifier_library.id_aktivace_cui("but7"))).click(); // Kontrola
 
